@@ -1,0 +1,95 @@
+\section{Funkcionális követelmények}
+
+\subsection{Hőtérképes megjelenítés}
+
+A drónokról érkező (numerikus) adatok megjelenítése színes hőtérkép segítségével.
+A jelölő pontok méretei, a köztük lévő távolság, valamint a színskála személyre szabható (lineáris / logaritmikus, a színek határai), továbbá bekapcsolható a rácspontokhoz igazítás, ami egy négyzetrács csúcsaira illeszti a kapott értékeket.
+
+\begin {itemize}
+  \item \textit{Given} that a heatmap layer is active and is subscribed to a channel on a drone \textit{when} new data arrives from the sensor \textit{then} it is displayed on the map.
+  \item \textit{Given} that there is already data, \textit{when} a new value is received, that is below the current minimum or above the current maximum, \textit{then} the color scale is adjused accordingly.
+\end {itemize}
+
+
+\subsection{Térkép állapotainak (pozíció, forgatás, nagyítás) tárolása és betöltése}
+
+Egy panel, amelyen elmenthetőek, szerkeszthetőek és visszatölthetőek adott nézetek. A tárolt adatok: a középpont koordinátái, az elforgatás szöge, a nagyítás mértéke, valmint a nézet neve.
+
+\begin {itemize}
+  \item \textit{Given} ??? \textit{when} the user presses the "Add a new location" button \textit{then} the actual position, rotation and zoom state is stored and the user is prompted for a name.
+  \item \textit{Given} that the user has previously stored a location \textit{when} the user select that location \textit{then} the map view is moved, rotated and zoomed to match the stored data.
+\end {itemize}
+
+
+\subsection{Objektumok betöltése GeoJSON formátumból}
+
+Különböző alakzatok megjelenítése a térképen, például repülési zóna vizualizálására, tereptárgyak kijelölésére.
+
+\begin {itemize}
+  \item \textit{Given} that the user has created a new layer, \textit{when} the user has selected the GeoJSON layer type, \textit{then} the application displays an input field.
+  \item \textit{Given} that the input is valid GeoJSON, \textit{when} the user clicks the import button, \textit{then} the objects described in the input appear on the map.
+\end {itemize}
+
+
+\subsection{Parancsok kiadása drónoknak menüsorról és jobb egérgombra felugró ablakból}
+
+Felszállás, leszállás, viszatérés illetve egyéb parancsok és üzenetek küldése drónoknak. Ha vannak kiválasztott egységek, akkor a menüsoron lévő akciók az összes jelenleg kijelölt kopterre hatással vannak, egy kopterre jobb egérgombbal kattintva pedig egy felugró ablakban válnak elérhetővé ugyanezek a lehetőségek arra az adott drónra vonatkozóan.
+
+\begin {itemize}
+  \item \textit{Given} that no drone is currently selected \textit{when} the user presses the right mouse button over a single drone, \textit{then} a popup menu appears that lets the user issue commands to that UAV.
+\end {itemize}
+
+
+\subsection{Állapotüzenetek (információk, figyelmeztetések, hibák) kijelzésére alkalmas panel}
+
+Napló vezetése az alkalmazás különböző üzeneteiről, valamint ennek megjelenítése egy sorbarendezhető, szűrhető táblázatban.
+
+\begin {itemize}
+  \item \textit{Given} ???, \textit{when} a message arrives, \textit{then} it is stored in the log.
+  \item \textit{Given} that the log panel is active, \textit{when} the user clicks the order button on one of the column headers, \textit{then} the rows are ordered according to that column.
+  \item \textit{Given} that the log panel is active, \textit{when} the user filters one of the columns, \textit{then} only those rows are displayed that match the criteria.
+\end {itemize}
+
+
+\subsection{Drónok színkódolása predikátumok alapján}
+
+Színekhez megadhatóak javascript függvénytörzsek, melyek paraméterül egy drón nevét kapják.
+Amennyiben egy bizonyos színhez megadott feltétel igazra értékelődik ki, akkor az adott drón a térképen olyan színnel jelenik meg.
+Például blue: 'Number(id) < 10' esetén az 5-ös azonosítójú drón kék lesz, a 15-ös azonban nem.
+
+\begin {itemize}
+  \item \textit{Given} that the user has entered a valid predicate for color A, \textit{when} the predicate evaluates to a truthy value for drone B, \textit{then} drone B is displayed in color A.
+\end {itemize}
+
+
+\subsection{Drónok részletes aktuális állapotát mutató panel}
+
+Egy táblázat, amiben minden drónhoz egy-egy sor tartozik, melyben a rá vonatkozó részletes információk (akkufeszültség, aktuálisan futó algoritmus / koreográfia, stb.) láthatóak.
+
+\begin {itemize}
+  \item \textit{Given} that the information panel is active, \textit{when} the user clicks the sort button \textit{then} the rows are ordered with respect to the appropriate column.
+\end {itemize}
+
+
+\subsection{Kliens állomás pozíciójának megjelenítése a térképen geolokáció alapján}
+
+Amennyiben a kliens eszköz rendelkezik geolokáció szolgáltatással, akkor a megfelelő réteg hozzáadását követően megjelenik az aktuális helyzete és iránya a térképen.
+A funkció bekapcsolását követően a jelölő pozíciója és állása folyamatosan frissül az eszköz által rendelkezésre bocsátott információk alapján.
+
+\begin {itemize}
+  \item \textit{Given} ???, \textit{when} the user adds the geolocation layer, \textit{then} the marker appears.
+  \item \textit{Given} that the geolocation layer has been added, \textit{when} the user moves, \textit{then} the marker moves as well.
+  \item \textit{Given} that the geolocation layer has been added, \textit{when} the user turns, \textit{then} the marker turns as well.
+  \item \textit{Given} that the geolocation layer has been added, \textit{when} the user deletes the geolocation layer, \textit{then} the marker disappears.
+\end {itemize}
+
+
+\subsection{Billentyűkombinációkkal történő vezérlés}
+
+Az alkalmazás bizonyos funkcióinak elérése a billentyűzet segítségével, például kijelölés kezelése, parancs küldése drónoknak, dialógusablakok megnyitása.
+Súgó elérése a billentyűkombinációk megtekintésére.
+
+\begin {itemize}
+  \item \textit{Given} that no input field is active, \textit{when} the user presses the ? key, \textit{then} the available hotkeys are displayed.
+  \item \textit{Given} that no input field is active, \textit{when} the user presses a hotkey, \textit{then} the desired action is performed.
+\end {itemize}

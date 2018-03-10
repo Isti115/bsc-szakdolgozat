@@ -1,0 +1,53 @@
+\section{A szoftver architektúrája}
+
+\subsection{Futási környezet}
+
+A program webes technológiákon alapul, így működtethető böngészőből, illetve böngészőtől független önálló becsomagolt állományból is.
+
+\subsection{Felhasznált könyvtárak}
+
+\begin{itemize}
+  \item Electron: Az önlállóan futtatható állomány létrehozásához.
+
+  \item Redux: Az alkalmazás állapotának tárolásához.
+  \item Golden Layout: A dinamius, felhasználó által személyre szabható felület kialakítására.
+
+  \item Material UI: A felhasználói felületen megjelenő elemekhez.
+
+  \item OpenLayers: A térképes megjelenítéshez.
+
+  \item React: Minden másra? :D
+\end{itemize}
+
+\subsection{A megvalósított osztályok}
+
+\subsubsection{HeatmapLayerSettingsPresentation}
+\subsubsection{HeatmapVectorSource}
+\subsubsection{HeatmapLayerPresentation}
+
+\subsubsection{MapReferenceRequestHandler}
+\subsubsection{MapViewManager}
+\subsubsection{SavedLocationEditorDialog}
+\subsubsection{SavedLocationList}
+
+\subsubsection{GeoJSONLayerSettingsPresentation}
+\subsubsection{GeoJSONVectorSource}
+\subsubsection{GeoJSONLayerPresentation}
+
+\subsubsection{MapToolbar}
+\subsubsection{ContextMenu}
+
+\subsubsection{FilterableSortableTable}
+\subsubsection{LogPanel}
+
+A naplóbejegyzéseket tartalmazó panel.
+
+\subsubsection{OwnLocationLayerSettingsPresentation}
+\subsubsection{OwnLocationVectorSource}
+\subsubsection{OwnLocationLayerPresentation}
+
+A felhasználó geolokációjának térképen való megjelenítéséért felelős osztály.
+
+\subsubsection{HotkeyHandler}
+
+A billentyűparancsok érzékeléséért és a hozzájuk rendelt feladatok végrehajtásáért felelős osztály.

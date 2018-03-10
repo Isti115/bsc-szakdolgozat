@@ -1,0 +1,36 @@
+\documentclass{article}
+\usepackage[
+  a4paper,
+  bmargin=2.5cm,
+  tmargin=2.5cm,
+  rmargin=2.5cm,
+  lmargin=3.5cm
+]{geometry}
+
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage[hungarian]{babel}
+
+\usepackage{array}
+\usepackage{makecell}
+
+\usepackage{graphicx}
+\graphicspath{ {../images/} }
+
+\usepackage[letterspace=150]{microtype}
+\usepackage{setspace}
+
+\begin{document}
+
+\input{./title-page.tex}
+
+\input{./introduction.tex}
+
+\input{./functional-requirements.tex}
+
+\input{./software-architecture.tex}
+
+\input{./ol-react.tex}
+
+\end{document}
