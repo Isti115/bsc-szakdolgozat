@@ -2,7 +2,8 @@
 
 \subsection{Futási környezet}
 
-A program webes technológiákon alapul, így működtethető böngészőből, illetve böngészőtől független önálló becsomagolt állományból is.
+A program webes technológiákon alapul, így működtethető böngészőből, illetve
+böngészőtől független önálló becsomagolt állományból is.
 
 \subsection{Felhasznált könyvtárak}
 
@@ -10,13 +11,14 @@ A program webes technológiákon alapul, így működtethető böngészőből, i
   \item Electron: Az önlállóan futtatható állomány létrehozásához. \\
   https://electronjs.org/
 
-  \item Redux: Az alkalmazás állapotának tárolásához. \\
+  \item Redux: Az alkalmazás központi állapotának tárolásához és kezeléséhez. \\
   https://redux.js.org/
 
-  \item Golden Layout: A dinamius, felhasználó által személyre szabható felület kialakítására. \\
+  \item Golden Layout: A dinamius, felhasználó által személyre szabható felület
+  kialakítására. \\
   https://golden-layout.com/
 
-  \item Material UI: A felhasználói felületen megjelenő elemekhez. \\
+  \item Material UI: A felhasználói felületen megjelenő elemek kinézetéhez. \\
   http://www.material-ui.com/ |  https://material-ui-next.com/
 
   \item OpenLayers: A térképes megjelenítéshez. \\
@@ -24,18 +26,64 @@ A program webes technológiákon alapul, így működtethető böngészőből, i
 
   \item React: Minden másra? :D \\
   https://reactjs.org/
+
+  \item ol-react: Az OpenLayers könyvtár által nyújtott funkciók React
+  komponensekként való kezeléséhez. \\
+  https://www.npmjs.com/package/ol-react
+
+  \item mini-signals: Az alkalmazás komponensei közötti üzenetküldésre. \\
+  https://github.com/Hypercubed/mini-signals
 \end{itemize}
 
 \subsection{A megvalósított osztályok}
 
 \subsubsection{HeatmapLayerSettingsPresentation}
+A hőtérkép réteg beállításait tartalmazó komponens.
+Itt adhatóak meg az aktuális réteg úgymond "feliratkozásai", tehát, hogy melyik
+eszköz melyik csatornáján érkező adatok megjelenítését végezze.
+Beállítható továbbá a jelölők közötti távolság, hogy rácspontokon kerüljenek-e
+elhelyezésre, vagy pedig minél közelebb a mérés helyéhez, valamint a skála
+végpontjai, hogy automatikusan skálázódjon-e újabb extremális érétkek
+érkezésekor, illetve hogy lineáris vagy pedig logaritmikus legyen.
+
 \subsubsection{HeatmapVectorSource}
+Az \verb|ol-react| csomag által biztosított \verb|source.Vector| osztályból
+származtatott osztály, amely a hőtérképen megjelenő színes jelölők
+létrehozásáért és frissítéséért felelős.
+A drónokról érkező üzenetek feldolgozása és az adatok \verb|localStorage|-be
+történő szinkonizálása is ebben az objektumban történik, így újratöltéskor nem
+vesznek el az eddigi mérés eredményei.
+
 \subsubsection{HeatmapLayerPresentation}
+A hőtérképet megjelenítő réteg. Kirajzolja a vektor forrásból származó jelölőket
+és a térkép sarkába pedig egy skálát az értékekhez.
 
 \subsubsection{MapReferenceRequestHandler}
+A központi OpenLayers térkép példány objektumhoz történő közvetlen hozzáférésre
+a programban több helyen is szükség van. Ez a komponens szolgál az ilyen jellegű
+igények kielégítésére oly módon, hogy feliratkozik a központi
+\verb|mapReferenceRequestSignal| jelzésre, és minden ezen keresztüli üzenetben
+érkező callback függvényt meghív a térkép objektum referenciájával
+paraméterként, amihez oly módon fér hozzá, hogy a térkép React komponensének
+leszármazottjaként a kontextus objektumából el tudja érni.
+
 \subsubsection{MapViewManager}
+A központi OpenLayers térkép példány nézeti objektumának kezelésére szolgáló
+osztály. Folyamatosan tárolja az aktuális pozítiót, elfordulást és nagyítást,
+valamint feliratkozik az ezekhez tartozó eseményekhez, hogy mindig frissíteni
+tudja az értékeket, ha szükséges, így ezek az adatok bármikor lekérdezhetőek
+belőle. Ezen felül képes a térkép nézeti paraméterének módosításaira is például
+egy elmentett állapot visszatöltéséhez, vagy mondjuk adott drónhoz ugráshoz.
+
 \subsubsection{SavedLocationEditorDialog}
+Az elmentett térképállapotok szerkesztésére szolgáló dialógusablak, amelyben
+szerkeszthető egy adott bejegyzés neve, középpontjának szélességi és hosszúsági
+foka, elforgatási szöge és nagyítási mértéke.
+
 \subsubsection{SavedLocationList}
+Az elmentett térképállapotok felsorolására szolgáló lista, melynek első eleme
+állandóan a jelenlegi állapotot tartalmazza, és arra történő kattintással az
+aktuális adatok felvehetőek a listába.
 
 \subsubsection{GeoJSONLayerSettingsPresentation}
 \subsubsection{GeoJSONVectorSource}
@@ -47,17 +95,17 @@ A program webes technológiákon alapul, így működtethető böngészőből, i
 \subsubsection{FilterableSortableTable}
 \subsubsection{LogPanel}
 
-A naplóbejegyzéseket tartalmazó panel.
+% A naplóbejegyzéseket tartalmazó panel.
 
 \subsubsection{OwnLocationLayerSettingsPresentation}
 \subsubsection{OwnLocationVectorSource}
 \subsubsection{OwnLocationLayerPresentation}
 
-A felhasználó geolokációjának térképen való megjelenítéséért felelős osztály.
+% A felhasználó geolokációjának térképen való megjelenítéséért felelős osztály.
 
 \subsubsection{HotkeyHandler}
 
-A billentyűparancsok érzékeléséért és a hozzájuk rendelt feladatok végrehajtásáért felelős osztály.
+% A billentyűparancsok érzékeléséért és a hozzájuk rendelt feladatok végrehajtásáért felelős osztály.
 
 \begin{figure}[H]
   \centering
