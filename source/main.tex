@@ -1,11 +1,19 @@
-\documentclass{article}
+\documentclass[twoside, 12pt]{article}
 \usepackage[
   a4paper,
+  inner=3.5cm,
+  outer=2.5cm,
   bmargin=2.5cm,
-  tmargin=2.5cm,
-  rmargin=2.5cm,
-  lmargin=3.5cm
+  tmargin=2.5cm
 ]{geometry}
+
+% \usepackage[
+%   a4paper,
+%   bmargin=2.5cm,
+%   tmargin=2.5cm,
+%   rmargin=2.5cm,
+%   lmargin=3.5cm
+% ]{geometry}
 
 \usepackage[utf8]{inputenc}
 \usepackage{lmodern}
@@ -21,9 +29,18 @@
 \usepackage[letterspace=150]{microtype}
 \usepackage{setspace}
 
+\usepackage{pdfpages}
+\usepackage{float}
+
+% \onehalfspacing
+\linespread{1.25}
 \begin{document}
 
 \input{./title-page.tex}
+
+\includepdf[pages={-}]{../Donko_Istvan_W8CCTI_PTI_Bsc_temabejelento_lap_szakdolgozat_final.pdf}
+
+\tableofcontents\newpage
 
 \input{./introduction.tex}
 
