@@ -16,7 +16,7 @@ A jelölő pontok méretei, a köztük lévő távolság, valamint a színskála
 Egy panel, amelyen elmenthetőek, szerkeszthetőek és visszatölthetőek adott nézetek. A tárolt adatok: a középpont koordinátái, az elforgatás szöge, a nagyítás mértéke, valmint a nézet neve.
 
 \begin {itemize}
-  \item \textit{Given} ??? \textit{when} the user presses the "Add a new location" button \textit{then} the actual position, rotation and zoom state is stored and the user is prompted for a name.
+  \item \textit{Given} that the user has moved, rotated and zoomed the map to the desired state \textit{when} the user presses the "Add a new location" button \textit{then} the actual position, rotation and zoom state is stored and the user is prompted for a name.
   \item \textit{Given} that the user has previously stored a location \textit{when} the user select that location \textit{then} the map view is moved, rotated and zoomed to match the stored data.
 \end {itemize}
 
@@ -53,11 +53,12 @@ Napló vezetése az alkalmazás különböző üzeneteiről, valamint ennek megj
 
 \subsection{Drónok színkódolása predikátumok alapján}
 
-Színekhez megadhatóak javascript függvénytörzsek, melyek paraméterül egy drón nevét kapják.
-Amennyiben egy bizonyos színhez megadott feltétel igazra értékelődik ki, akkor az adott drón a térképen olyan színnel jelenik meg.
-Például blue: 'Number(id) < 10' esetén az 5-ös azonosítójú drón kék lesz, a 15-ös azonban nem.
+A drónok alapértelmezetten feketén jelennek meg, további színekhez pedig megadhatóak javascript függvénytörzsek, melyek paraméterül egy drón nevét kapják.
+Amennyiben egy bizonyos színhez megadott feltétel valamely azonosítót kapva paraméterként igazra értékelődik ki, akkor az adott drón a térképen olyan színnel jelenik meg.
+Például \verb|blue: 'Number(id) < 10'| esetén az 5-ös azonosítójú drón kék lesz, a 15-ös azonban nem.
 
 \begin {itemize}
+  \item \textit{Given} that there are no matching predicates, \textit{when} a drone is rendered onto the map, \textit{then} it's color is black.
   \item \textit{Given} that the user has entered a valid predicate for color A, \textit{when} the predicate evaluates to a truthy value for drone B, \textit{then} drone B is displayed in color A.
 \end {itemize}
 
@@ -68,6 +69,7 @@ Egy táblázat, amiben minden drónhoz egy-egy sor tartozik, melyben a rá vonat
 
 \begin {itemize}
   \item \textit{Given} that the information panel is active, \textit{when} the user clicks the sort button \textit{then} the rows are ordered with respect to the appropriate column.
+  \item \textit{Given} that the user has selected a row with the arrow keys, \textit{when} the user presses enter \textit{then} the message dialog of the selected UAV appears.
 \end {itemize}
 
 

@@ -86,26 +86,80 @@ Az elmentett térképállapotok felsorolására szolgáló lista, melynek első 
 aktuális adatok felvehetőek a listába.
 
 \subsubsection{GeoJSONLayerSettingsPresentation}
+A GeoJSON formátumban tárolt geometriák megjelenítésére szolgáló réteg
+beállításait tartalmazó osztály. Megadható a rétegre betöltött objektumok
+kitöltésének és körvonalának színe, valamint itt található egy szövegdoboz is,
+amibe a kívánt GeoJSON adatokat kell beilleszteni, majd pedig az alatta lévő
+gomb segítségével validálni és importálni a térképre.
+
 \subsubsection{GeoJSONVectorSource}
+Az \verb|ol-react| csomag által biztosított \verb|source.Vector| osztályból
+származtatott osztály, amely a GeoJSON rétegen megjelenő geometriák stílusának
+beállításáért és az OpenLayers beépített GeoJSON olvasójának segítségével
+történő előállításáért felelős a \verb|GeoJSONLayerPresentation| osztály
+számára.
+
 \subsubsection{GeoJSONLayerPresentation}
+Megjeleníti a \verb|GeoJSONVectorSource| által előállított geometriákat a
+térképen.
 
 \subsubsection{MapToolbar}
+A térképpel kapcsolatos eszközöket tartalmazó eszköztár. Különböző módok
+választhatóak rajta, amik az egérrel végrehajtható akciókat befolyásolják. Az
+elérhető módok: kijelölés, mozgatás, nagyítás. Található még rajta továbbá egy
+szövegdoboz, ami a térkép elfordulását mutatja fokokban, és a felhasználó által
+is átírható egy kivánt szög beállításának céljából. Ezeken felül még két gombot
+tartalmaz, egyet az északi orientáció visszaállítására, egyet pedig a térkép oly
+módon történő pozícionálására, hogy az összes jelenleg látható objektum
+beleférjen a képbe.
+
 \subsubsection{ContextMenu}
+A térkép egy üres részén vagy egy drón fölött kezdeményezett jobb egérgomb
+esemény következtében megjelenő helyi menüt megvalósító osztály. A drónoknak
+kiadható utasításokat tartalmazza. (Felszállás, leszállás, visszatérés a
+kiindulópontra, kikapcsolás.)
 
 \subsubsection{FilterableSortableTable}
+Adatok táblázatban szűrhető és sorbarendezhető táblázatban történő
+megjelenítésére szolgáló osztály. Szűrés szempontjából három különböző fajta
+értéktípust támogat. Felsorolható adattípus esetén az egyes típusok ki és
+bekapcsolását, tartomány esetén intervallumra való leszűkítést, szöveges adat
+esetén pedig keresést a szöveg tetszőleges pontján. Sorbarendezéshez minden
+oszlophoz külön külön saját összehasonlító függvény adható meg.
+
 \subsubsection{LogPanel}
 
-% A naplóbejegyzéseket tartalmazó panel.
+A naplóbejegyzéseket tartalmazó panel \verb|FilterableSortableTable|
+segítségével implementálva. Három oszlopa van. A bejegyzés súlyossága
+(felsorolható típusú: információ, figyelmeztetés vagy hiba), bejegyzés időpontja
+(tartomány típusú), valamint a bejegyzés szövege (szöveg típusú).
+
+\subsubsection{GroundControlPanel}
+
+Egy táblázatot tartalmazó panel, melyben a drónok részletes adatai találhatóak,
+mint például koordináták, magasság, akkufeszültség, aktuálisan futó algoritmus.
+A sorok közül nyíl billenyűkkel vagy kattintással kiválasztva egyet az enter
+billentyű lenyomását követően üzenet küldhető az adott drónnak.
 
 \subsubsection{OwnLocationLayerSettingsPresentation}
+
+A felhasználó geolokációját megjelenítő réteg beállításait tartalmazó komponens.
+
 \subsubsection{OwnLocationVectorSource}
+
+A felhasználó geolokációt jelölő ikon előállításáért és újabb pozícióra vagy
+elfordulásra vonatkozó adatok érkezésekor történő frissítéséért felelős osztály.
+
 \subsubsection{OwnLocationLayerPresentation}
 
-% A felhasználó geolokációjának térképen való megjelenítéséért felelős osztály.
+A felhasználó geolokációjának térképen való megjelenítéséért felelős osztály.
 
 \subsubsection{HotkeyHandler}
 
-% A billentyűparancsok érzékeléséért és a hozzájuk rendelt feladatok végrehajtásáért felelős osztály.
+A billentyűparancsok érzékeléséért és a hozzájuk rendelt feladatok
+végrehajtásáért felelős osztály. Ez egy konténerként szolgáló komponens
+segítéségével kerül megvalósítására, mely figyeli a rajta keresztül érkező
+billenytűlenyomás eseményeket.
 
 \begin{figure}[H]
   \centering
