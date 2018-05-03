@@ -2,38 +2,41 @@
 
 \subsection{Futási környezet}
 
-A program webes technológiákon alapul, így működtethető böngészőből, illetve
+A kliens program webes technológiákon alapul, így működtethető böngészőből, illetve
 böngészőtől független önálló becsomagolt állományból is.
 
 \subsection{Felhasznált könyvtárak}
 
 \begin{itemize}
-  \item Electron: Az önlállóan futtatható állomány létrehozásához. \\
+  \item \textbf{Electron}: Az önlállóan futtatható állomány létrehozásához. \\
   https://electronjs.org/
 
-  \item Redux: Az alkalmazás központi állapotának tárolásához és kezeléséhez. \\
+  \item \textbf{Redux}: Az alkalmazás központi állapotának tárolásához és kezeléséhez.
+  (A tradícionális MVC architektúrából leginkább a modell és a controller
+  kombinációjának feleltethető meg.) \\
   https://redux.js.org/
 
-  \item Golden Layout: A dinamius, felhasználó által személyre szabható felület
+  \item \textbf{Golden Layout}: A dinamius, felhasználó által személyre szabható felület
   kialakítására. \\
   https://golden-layout.com/
 
-  \item Material UI: A felhasználói felületen megjelenő elemek kinézetéhez. \\
-  http://www.material-ui.com/ |  https://material-ui-next.com/
+  \item \textbf{Material UI}: A felhasználói felületen megjelenő elemek kinézetéhez. \\
+  http://www.material-ui.com/ | https://material-ui-next.com/
 
-  \item OpenLayers: A térképes megjelenítéshez. \\
+  \item \textbf{OpenLayers}: A térképes megjelenítéshez. \\
   https://openlayers.org/
 
-  \item React: A központi állapot nézetté történő leképezésére, a HTML elemek
+  \item \textbf{React}: A központi állapot nézetté történő leképezésére, a HTML elemek
   fölött használt állapottal rendelkező komponensek absztrakciójának
-  megteremtésére. \\
+  megteremtésére. (A hagyományos MVC architektúrában leginkább a view szerepét
+  tölti be.) \\
   https://reactjs.org/
 
-  \item ol-react: Az OpenLayers könyvtár által nyújtott funkciók React
+  \item \textbf{ol-react}: Az OpenLayers könyvtár által nyújtott funkciók React
   komponensekként való kezeléséhez. \\
   https://www.npmjs.com/package/ol-react
 
-  \item mini-signals: Az alkalmazás komponensei közötti üzenetküldésre. \\
+  \item \textbf{mini-signals}: Az alkalmazás komponensei közötti üzenetküldésre. \\
   https://github.com/Hypercubed/mini-signals
 \end{itemize}
 
@@ -66,8 +69,9 @@ a programban több helyen is szükség van. Ez a komponens szolgál az ilyen jel
 igények kielégítésére oly módon, hogy feliratkozik a központi
 \verb|mapReferenceRequestSignal| jelzésre, és minden ezen keresztüli üzenetben
 érkező callback függvényt meghív a térkép objektum referenciájával
-paraméterként, amihez oly módon fér hozzá, hogy a térkép React komponensének
-leszármazottjaként a kontextus objektumából el tudja érni.
+paraméterként. Ehhez a referenciához úgy fér hozzá, hogy a térkép React
+komponensének leszármazottjaként van elhelyezve a komponensek fájában, így a
+kontextus objektumából el tudja érni.
 
 \subsubsection{MapViewManager}
 A központi OpenLayers térkép példány nézeti objektumának kezelésére szolgáló
