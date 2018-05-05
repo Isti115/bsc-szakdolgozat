@@ -2,32 +2,34 @@
 
 \subsection{Futási környezet}
 
-A kliens program webes technológiákon alapul, így működtethető böngészőből, illetve
-böngészőtől független önálló becsomagolt állományból is.
+A kliens program webes technológiákon alapul, így működtethető böngészőből,
+illetve böngészőtől független önálló becsomagolt állományból is.
 
-\subsection{Felhasznált könyvtárak}
+\subsection{Felhasznált főbb könyvtárak}
 
 \begin{itemize}
-  \item \textbf{Electron}: Az önlállóan futtatható állomány létrehozásához. \\
+  \item \textbf{Electron}: Az önlállóan futtatható becsomagolt állomány
+  létrehozásához. \\
   https://electronjs.org/
 
-  \item \textbf{Redux}: Az alkalmazás központi állapotának tárolásához és kezeléséhez.
-  (A tradícionális MVC architektúrából leginkább a modell és a controller
-  kombinációjának feleltethető meg.) \\
+  \item \textbf{Redux}: Az alkalmazás központi állapotának tárolásához és
+  kezeléséhez. (A tradícionális MVC architektúrából leginkább a modell és a
+  kontroller kombinációjának feleltethető meg.) \\
   https://redux.js.org/
 
-  \item \textbf{Golden Layout}: A dinamius, felhasználó által személyre szabható felület
-  kialakítására. \\
+  \item \textbf{Golden Layout}: A dinamius, felhasználó által személyre szabható
+  felület kialakítására. \\
   https://golden-layout.com/
 
-  \item \textbf{Material UI}: A felhasználói felületen megjelenő elemek kinézetéhez. \\
+  \item \textbf{Material UI}: A felhasználói felületen megjelenő elemek
+  kinézetéhez. \\
   http://www.material-ui.com/ | https://material-ui-next.com/
 
   \item \textbf{OpenLayers}: A térképes megjelenítéshez. \\
   https://openlayers.org/
 
-  \item \textbf{React}: A központi állapot nézetté történő leképezésére, a HTML elemek
-  fölött használt állapottal rendelkező komponensek absztrakciójának
+  \item \textbf{React}: A központi állapot nézetté történő leképezésére, a HTML
+  elemek fölött használt állapottal rendelkező komponensek absztrakciójának
   megteremtésére. (A hagyományos MVC architektúrában leginkább a view szerepét
   tölti be.) \\
   https://reactjs.org/
@@ -36,7 +38,8 @@ böngészőtől független önálló becsomagolt állományból is.
   komponensekként való kezeléséhez. \\
   https://www.npmjs.com/package/ol-react
 
-  \item \textbf{mini-signals}: Az alkalmazás komponensei közötti üzenetküldésre. \\
+  \item \textbf{mini-signals}: Az alkalmazás komponensei közötti üzenetküldésre.
+  \\
   https://github.com/Hypercubed/mini-signals
 \end{itemize}
 
@@ -150,6 +153,8 @@ billentyű lenyomását követően üzenet küldhető az adott drónnak.
 \subsubsection{OwnLocationLayerSettingsPresentation}
 
 A felhasználó geolokációját megjelenítő réteg beállításait tartalmazó komponens.
+A szoftver aktuális állapotában nem rendelkezik más beállítással a láthatóság
+ki-- és bekapcsolására szolgáló gombon kívül.
 
 \subsubsection{OwnLocationVectorSource}
 

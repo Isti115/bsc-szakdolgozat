@@ -1,16 +1,76 @@
 \section{Háttér modell}
 
 Mint az már korábban említésre került, a modell és a kontroller szerepét
-egyaránt a Redux csomag tölti be.
-
-Több apróbb modell összekapcsolásával jön létre egy nagyobb állapot...
-
-Ezek közül a program általam megvalósított részeihez relevánsak:
+egyaránt a Redux csomag tölti be. A háttérben több kisebb független modell
+összekapcsolásával jön létre egy nagyobb állapot, melyeknek a módosítása
+kizárólag előre megadott akciók segítségével történik, így garantálva a
+konzisztenciát. Ezek közül az program általam megvalósított részeihez a
+következők relevánsak:
 
 \begin{itemize}
 
-  \item log
-  \item savedlocations
-  \item ...
+  \item \textbf{layers.uavs.parameters.colorPredicates}
+
+    A drónokhoz tartozó réteg paraméterei közül a színkódolásért felelős
+    predikátumok tárolása is a Redux store-ban történik. Erre egy olyan objektum
+    szolgál, melynek kulcsai az elérhető színek, az ezekhez rendelt értékek
+    pedig a predikátum függvények törzsei.
+
+    \textit{Módosítására szolgáló műveletek:}
+
+    \begin{itemize}
+      \item SET\_LAYER\_PARAMETER\_BY\_ID
+    \end{itemize}
+
+  \item \textbf{log}
+
+    Az eseménynapló bejegyzéseit tartalmazó állapot. Adattípus tekintetében egy
+    listaként valósul meg, amiben időrendi sorrendben szerepelnek olyan
+    objektumok, melyek egy adott üzenetnek tartalmazzák az azonosítóját,
+    időbélyegét, kritikussági szintjét és szövegét.
+
+    \textit{Módosítására szolgáló műveletek:}
+
+    \begin{itemize}
+      \item ADD\_LOG\_ITEM \\
+        A kapott paraméterek alapján létrehoz egy új naplóbejegyzést, amit ellát
+        az aktuális időbélyeggel és hozzáadja a tárolásra szolgáló listához.
+
+      \item DELETE\_LOG\_ITEM \\
+        Törli a megadott azonosító által jelölt naplóbejegyzést.
+
+      \item CLEAR\_LOG\_ITEMS \\
+        Kiüríti a naplót, törölve ezzel az összes bejegyzést.
+
+      \item UPDATE\_LOG\_PANEL\_VISIBILITY \\
+        A naplóbejegyzések megjelenítésére szolgáló lista láthatóságának
+        változásakor kezdeményezett akció. Paraméterként megkapja, hogy éppen
+        megnyílt, vagy pedig bezáródott a panel.
+        A bal oldali sávon a panel ikonja mellett megjelenő, olvasatlan kritikus
+        üzeneteket jelző színes jelölőhöz szükséges.
+
+    \end{itemize}
+
+  \item \textbf{saved-locations}
+
+    Az eltárolt pozíciók adatait (név, középpont, nagyítás, elforgatás)
+    tartalmazó objektumokból álló állapot.
+
+    \textit{Módosítására szolgáló műveletek:}
+
+    \begin{itemize}
+      \item UPDATE\_SAVED\_LOCATION \verb|(savedLocation)| \\
+        Meglévő elmentett pozíció módosítása, vagy ha a paraméterként kapott
+        pozíció az éppen aktuális pozíció, akkor új bejegyzés létrehozása.
+
+      \item DELETE\_SAVED\_LOCATION (savedLocationId) \\
+        Egy előzőleg elmentett pozíció törlése annak azonosítója alapján.
+    \end{itemize}
 
 \end{itemize}
+
+\noindent Perzisztencia céljából ezen állapot bizonyos részei kerülnek adott időközönként
+automatikusan mentésre a böngésző által felkínált \verb|localStorage| API
+segítségével, az alkalmazás megnyitásakor pedig innen töltődnek be, így például
+a beállított színek és az elmentett térkép állapotok megmaradnak az oldal
+frissítése után is.
