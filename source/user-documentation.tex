@@ -18,16 +18,152 @@ protokoll segítségével.
 
 \section{A felület kezelése}
 
-Alapállapotban a felület a térképet jeleníti meg, mellette pedig a rétegek
-kezelésére alkalmas panelt, valamint az ismert drónok listáját. További felületi
-elemek érhetőek el a fülekre kattintva, illetve a bal oldalon található sávról
-kattintással vagy húzással a felületre helyezve.
+\subsection{Kezdeti állapot}
 
-\begin{figure}[h!]
+Alapállapotban a felület a térképet jeleníti meg, mellette pedig az eltárolt
+pozíciók kezelésére alkalmas panelt, valamint az ismert drónok listáját. További
+felületi elemek érhetőek el a fülekre kattintva, illetve a bal oldalon található
+sávról ( \ref{fig:initial_state}. ábra /\circled{1}) kattintással vagy húzással
+a felületre helyezve.
+
+\begin{figure}[H]
   \center
-  \includegraphics[width=\textwidth]{default_client_state.png}
+  \includegraphics[width=\textwidth]{screenshots/initial_state.png}
   \caption{A kliens program alapállapota}
-  \label{fig:default_client_state}
+  \label{fig:initial_state}
 \end{figure}
 
-// TODO: Panelek egyenként bemutatva és illusztrálva.
+
+\subsection{Csatlakozás a szerverhez}
+
+A szerverhez való csatlakozásához meg kell adni annak elérési adatait. Ezt a
+\ref{fig:initial_state}. ábra /\circled{2} jelölésű gombján történő kattintás
+után megjelenő dialógusablakban tehetjük meg.
+
+\begin{figure}[H]
+  \center
+  \includegraphics[width=0.5\textwidth]{screenshots/connection_dialog.png}
+  \caption{A szerverhez való csatlakozásra szolgáló dialógusablak}
+  \label{fig:connection_dialog}
+\end{figure}
+
+Sikeres csatlakozás esetén a dialógusablak megnyitására szolgáló gomb mellett
+megjelenik egy kis zöld színű teli kör alakú jelölő, az UAVs című panelben és a
+térképen pedig láthatóvá válnak a szerverrel aktuálisan kapcsolatban álló
+drónok.
+
+
+\subsection{Hőtérképes megjelenítés}
+
+Hőtérképes megjelenítés segítségével a drónokon elhelyezett műszerek mérései
+ábrázolhatóak vizuális módon. Ehhez először egy hőtérkép típusú réteg
+létrehozása szükséges a rétegek panelen az "Add new layer", majd pedig azon
+belül a "Heatmap" opciót választva.
+
+Ekkor a rendszer lehetőséget biztosít a megfigyelni kívánt csatornákra történő
+fel-- és leiratkozásra. Ez az "Edit subscriptions" gomb által megjeleníthető
+dialógusablakban tehető meg.
+
+Beállítható továbbá egy küszöbszint, ami alatt az értékeket fehérrel jelzi,
+valamint a színskála két széléhez tartozó érték is megadható manuálisan, vagy
+pedig bekapcsolható az automatikus skálázás, amely esetén minden beérkező érték
+feldolgozásakor frissíti a határokat a rendszer, amennyiben ez szükséges.
+Személyre szabhatóak a színskála végpontjainak színárnyalatai, valamint a
+színezési függvény is kiválasztható. (Lineáris vagy logaritmikus.)
+
+Ezen felül megadható a mérési pontok közötti minimális távolság, bekapcsolható a
+rácspontokhoz történő igazítás, továbbá törölhetőek az eddigi mérési adatok.
+
+A kép (\ref{fig:heatmap}. ábra) például egy logaritmikus színezésű, 5 méteres
+sűrűségű rácspontokra igazított hőtérkép látható, amely egy szimulált pontszerű
+forrásból származó radioaktív mérés eredményeit ábrázolja.
+
+\begin{figure}[H]
+  \center
+  \includegraphics[width=\textwidth]{screenshots/heatmap.png}
+  \caption{Egy hőtérkép kinézete}
+  \label{fig:heatmap}
+\end{figure}
+
+\subsection{Térkép állapotainak elmentése és betöltése}
+
+Az alkalmazás lehetőséget biztosít adott térkép állások (középpont, nagyítás és
+elforgatás) tárolására későbbi betöltés céljából. Ehhez felületi elemként
+elérhető a kép (\ref{fig:saved_locations}. ábra) bal oldalán látható listát
+tartalmazó panel, mely az eddig elmentett opciókat tartalmazza. Egy elemre
+rákattintva betölthető az adott állapot, ekkor a térkép animálva átvált egy,
+az eltárolt középponttal, nagyítással és elforgatással rendelkező nézetre. A
+listaelemek mellett szereplő fogaskerék ikon pedig a kép jobb oldalán látható
+dialógusablakban nyitja meg szerkesztésre a kiválasztott helyet. Itt törölhető
+is az adott bejegyzés, ha már nincs rá szükség.
+
+Új hely az első elemre ("Add new location") kattintva adható hozzá a
+listához. Ekkor a dialógusablak a térkép aktuális állapotának értékeivel
+kitöltve nyílik meg, így az könnyen elmenthető, vagy pedig kézzel bevihetőek
+kívánt adatok.
+
+\begin{figure}[H]
+  \center
+  \includegraphics[width=\textwidth]{screenshots/saved_locations.png}
+  \caption{A mentett pozíciók panelje és a szerkesztésükre alkalmas dialógusablak}
+  \label{fig:saved_locations}
+\end{figure}
+
+
+\subsection{GeoJSON megjelenítése}
+
+A GeoJSON egy elterjedt térképészeti formátum, mely geográfiai objektumok
+leírására alkalmas. Drónok vezérlésénél és monitorozásánál szükség lehet előre
+megadott létező vagy virtuális terepobjketumok megjelenítésére a térképen, mint
+például környező akadályok, épületek, vagy esetleg egy kijelölt repülési zóna.
+
+Ezek megjelenítéséhez egy speciális réteg hozzáadása szükséges. Ez a rétegek
+panelen az "Add new layer" gomb megnyomásával lehetséges. Amennyiben az ezt
+követően felugró dialógusablakban a GeoJSON opció kerül kiválasztásra, akkor az
+alkalmazás felkínálja a réteg beállításait. Megadhatóak a megjeleníteni kívánt
+GeoJSON objektum kirajzolásához felhasználandó színek külön a körvonalhoz,
+valamint a kitöltéshez, továbbá testreszabható a körvonal vastagsága. A GeoJSON
+forrásszöveg elhelyezése is a dialógusablakban lévő szövegdobozban történik,
+majd pedig az "IMPORT GEOJSON" gombot megnyomva a forrás által meghatározott
+objektum megjelenik a térképen.
+
+\begin{figure}[H]
+  \center
+  \includegraphics[width=\textwidth]{screenshots/geojson.png}
+  \caption{Egy poligont megjelenítő GeoJSON réteg}
+  \label{fig:geojson}
+\end{figure}
+
+\subsection{Parancsok kiadása drónoknak}
+
+\subsection{Állapotüzenetek kijelzésére alkalmas panel}
+
+A rendszer naplóbejegyzéseit megjelenítő panel alapbeállításként nincs
+bekapcsolva, a bal oldali sávról érhető el
+
+\subsection{Drónok színkódolása predikátumok alapján}
+
+\subsection{Drónok részletes aktuális állapotát mutató panel}
+
+A régi karakteres felület előnyének fenntartására, az elérhető információ tömör
+formában történő megtekintésére szolgáló "Ground Control View" nézet
+alapbeállításként rejtve van, a bal oldali sávról aktiválható. Ekkor egy
+szűrhető és rendezhető táblázatként válnak benne elérhetővé a drónok aktuális
+adatai.
+
+\begin{figure}[H]
+  \center
+  \includegraphics[width=\textwidth]{screenshots/ground_control_view.png}
+  \caption{A drónok adatai egy szűrhető és rendezhető táblázatban}
+  \label{fig:ground_control_view}
+\end{figure}
+
+\subsection{Kliens állomás pozíciójának megjelenítése geolokáció alapján}
+
+\subsection{Billentyűkombinációkkal történő vezérlés}
+
+Az alkalmazásban elérhető Billentyűkombinációk bárhonnan működnek, amennyiben
+nincsen aktív beviteli mező. A teljes lista megtekinthető a "?" szimbólum
+gépelésére szolgáló Billentyűkombináció lenyomásával.
+
+(Ide írjam le a teljes listát?)

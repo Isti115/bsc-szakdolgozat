@@ -32,6 +32,13 @@
 \usepackage{pdfpages}
 \usepackage{float}
 
+\usepackage{tikz}
+\newcommand*\circled[1]{
+  \tikz[baseline=(char.base)]{
+    \node[shape=circle,draw,inner sep=1pt] (char) {#1};
+  }
+}
+
 % \onehalfspacing
 \linespread{1.25}
 \begin{document}
