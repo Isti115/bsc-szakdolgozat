@@ -7,13 +7,13 @@ A jelölő pontok méretei, a köztük lévő távolság, valamint a színskála
 
 \begin {itemize}
   \item \textit{Given} that a heatmap layer is active and is subscribed to a channel on a drone \textit{when} new data arrives from the sensor \textit{then} it is displayed on the map.
-  \item \textit{Given} that there is already data, \textit{when} a new value is received, that is below the current minimum or above the current maximum, \textit{then} the color scale is adjused accordingly.
+  \item \textit{Given} that there is already data, \textit{when} a new value is received, that is below the current minimum or above the current maximum, \textit{then} the color scale is adjusted accordingly.
 \end {itemize}
 
 
 \subsection{Térkép állapotainak (pozíció, forgatás, nagyítás) tárolása és betöltése}
 
-Egy panel, amelyen elmenthetőek, szerkeszthetőek és visszatölthetőek adott nézetek. A tárolt adatok: a középpont koordinátái, az elforgatás szöge, a nagyítás mértéke, valmint a nézet neve.
+Egy panel, amelyen elmenthetőek, szerkeszthetőek és visszatölthetőek adott nézetek. A tárolt adatok: a középpont koordinátái, az elforgatás szöge, a nagyítás mértéke, valamint a nézet neve.
 
 \begin {itemize}
   \item \textit{Given} that the user has moved, rotated and zoomed the map to the desired state \textit{when} the user presses the "Add a new location" button \textit{then} the actual position, rotation and zoom state is stored and the user is prompted for a name.
@@ -33,7 +33,7 @@ Különböző alakzatok megjelenítése a térképen, például repülési zóna
 
 \subsection{Parancsok kiadása drónoknak menüsorról és jobb egérgombra felugró ablakból}
 
-Felszállás, leszállás, viszatérés illetve egyéb parancsok és üzenetek küldése drónoknak. Ha vannak kiválasztott egységek, akkor a menüsoron lévő akciók az összes jelenleg kijelölt kopterre hatással vannak, egy kopterre jobb egérgombbal kattintva pedig egy felugró ablakban válnak elérhetővé ugyanezek a lehetőségek arra az adott drónra vonatkozóan.
+Felszállás, leszállás, visszatérés illetve egyéb parancsok és üzenetek küldése drónoknak. Ha vannak kiválasztott egységek, akkor a menüsoron lévő akciók az összes jelenleg kijelölt kopterre hatással vannak, egy kopterre jobb egérgombbal kattintva pedig egy felugró ablakban válnak elérhetővé ugyanezek a lehetőségek arra az adott drónra vonatkozóan.
 
 \begin {itemize}
   \item \textit{Given} that no drone is currently selected \textit{when} the user presses the right mouse button over a single drone, \textit{then} a popup menu appears that lets the user issue commands to that UAV.
@@ -42,7 +42,7 @@ Felszállás, leszállás, viszatérés illetve egyéb parancsok és üzenetek k
 
 \subsection{Állapotüzenetek (információk, figyelmeztetések, hibák) kijelzésére alkalmas panel}
 
-Napló vezetése az alkalmazás különböző üzeneteiről, valamint ennek megjelenítése egy sorbarendezhető, szűrhető táblázatban.
+Napló vezetése az alkalmazás különböző üzeneteiről, valamint ennek megjelenítése egy sorba rendezhető, szűrhető táblázatban.
 
 \begin {itemize}
   \item \textit{Given} that an event produces a log entry, \textit{when} the message arrives, \textit{then} it is stored in the log.

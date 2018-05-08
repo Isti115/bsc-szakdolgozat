@@ -8,7 +8,7 @@ illetve böngészőtől független önálló becsomagolt állományból is.
 \subsection{Felhasznált főbb könyvtárak}
 
 \begin{itemize}
-  \item \textbf{Electron}: Az önlállóan futtatható becsomagolt állomány
+  \item \textbf{Electron}: Az önállóan futtatható becsomagolt állomány
   létrehozásához. \\
   https://electronjs.org/
 
@@ -17,7 +17,7 @@ illetve böngészőtől független önálló becsomagolt állományból is.
   kontroller kombinációjának feleltethető meg.) \\
   https://redux.js.org/
 
-  \item \textbf{Golden Layout}: A dinamius, felhasználó által személyre szabható
+  \item \textbf{Golden Layout}: A dinamikus, felhasználó által személyre szabható
   felület kialakítására. \\
   https://golden-layout.com/
 
@@ -59,7 +59,7 @@ Az \verb|ol-react| csomag által biztosított \verb|source.Vector| osztályból
 származtatott osztály, amely a hőtérképen megjelenő színes jelölők
 létrehozásáért és frissítéséért felelős.
 A drónokról érkező üzenetek feldolgozása és az adatok \verb|localStorage|-be
-történő szinkonizálása is ebben az objektumban történik, így újratöltéskor nem
+történő szinkronizálása is ebben az objektumban történik, így újratöltéskor nem
 vesznek el az eddigi mérés eredményei.
 
 \subsubsection{HeatmapLayerPresentation}
@@ -79,8 +79,8 @@ kontextus objektumából el tudja érni.
 
 \subsubsection{MapViewManager}
 A központi OpenLayers térkép példány nézeti objektumának kezelésére szolgáló
-osztály. Folyamatosan tárolja az aktuális pozítiót, elfordulást és nagyítást,
-valamint feliratkozik az ezekhez tartozó OpenLayers API által nyújtutt
+osztály. Folyamatosan tárolja az aktuális pozíciót, elfordulást és nagyítást,
+valamint feliratkozik az ezekhez tartozó OpenLayers API által nyújtott
 eseményekre, hogy mindig frissíteni tudja az értékeket, ha szükséges, így ezek
 az adatok bármikor lekérdezhetőek belőle. Ezen felül képes a térkép nézeti
 paraméterének animált módosításaira is például egy elmentett állapot
@@ -132,11 +132,11 @@ kiadható utasításokat tartalmazza. (Felszállás, leszállás, visszatérés 
 kiindulópontra, kikapcsolás.)
 
 \subsubsection{FilterableSortableTable}
-Adatok szűrhető és sorbarendezhető táblázatban történő megjelenítésére szolgáló
+Adatok szűrhető és sorba rendezhető táblázatban történő megjelenítésére szolgáló
 osztály. Szűrés szempontjából három különböző fajta értéktípust támogat.
 Felsorolható adattípus esetén az egyes típusok ki és bekapcsolását, tartomány
 esetén intervallumra való leszűkítést, szöveges adat esetén pedig keresést a
-szöveg tetszőleges pontján. Sorbarendezéshez minden oszlophoz külön-külön saját
+szöveg tetszőleges pontján. Sorba rendezéshez minden oszlophoz külön-külön saját
 összehasonlító függvény adható meg.
 
 \subsubsection{LogPanel}
@@ -150,13 +150,13 @@ segítségével implementálva. Három oszlopa van. A bejegyzés súlyossága
 
 Egy táblázatot tartalmazó panel, melyben a drónok részletes adatai találhatóak,
 mint például koordináták, magasság, akkufeszültség, aktuálisan futó algoritmus.
-A sorok közül nyíl billenyűkkel vagy kattintással kiválasztva egyet az enter
+A sorok közül nyíl billentyűkkel vagy kattintással kiválasztva egyet az enter
 billentyű lenyomását követően üzenet küldhető az adott drónnak.
 
 \subsubsection{OwnLocationLayerSettingsPresentation}
 
 A felhasználó geolokációját megjelenítő réteg beállításait tartalmazó komponens.
-A szoftver aktuális állapotában nem rendelkezik más beállítássi lehetőséggel a
+A szoftver aktuális állapotában nem rendelkezik más beállítási lehetőséggel a
 láthatóság ki-- és bekapcsolására szolgáló gombon kívül.
 
 \subsubsection{OwnLocationVectorSource}
@@ -182,7 +182,7 @@ tartozik akció a \textit{hotkeys.js} konfigurációs file-ban, akkor végrehajt
 azt. Ez alól kivételt képeznek az \verb|input| és a \verb|textarea| típusú
 felületi elemekből származó események.
 
-A komponens a konfigurációs file-ban megadott billentyűkombinácókon kívül
+A komponens a konfigurációs file-ban megadott billentyűkombinációkon kívül
 beregisztrálja a gyorsbillentyűk alapján automatikusan generált súgó
 megjelenítésének akcióját a "?" begépelésére szolgáló billentyűkombinációra.
 A kombinációk egyezésének érzékelése történhet a lenyomott gombok alapján,
