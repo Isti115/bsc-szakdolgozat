@@ -4,7 +4,7 @@ Mint az már korábban említésre került, a modell és a kontroller szerepét
 egyaránt a Redux csomag tölti be. A háttérben több kisebb független modell
 összekapcsolásával jön létre egy nagyobb állapot, melyeknek a módosítása
 kizárólag előre megadott akciók segítségével történik, így garantálva a
-konzisztenciát. Ezek közül az program általam megvalósított részeihez a
+konzisztenciát. Ezek közül a program általam megvalósított részeihez a
 következők relevánsak:
 
 \begin{itemize}
@@ -63,11 +63,11 @@ következők relevánsak:
     \textit{Módosítására szolgáló műveletek:}
 
     \begin{itemize}
-      \item UPDATE\_SAVED\_LOCATION \verb|(savedLocation)| \\
+      \item UPDATE\_SAVED\_LOCATION \\
         Meglévő elmentett pozíció módosítása, vagy ha a paraméterként kapott
         pozíció az éppen aktuális pozíció, akkor új bejegyzés létrehozása.
 
-      \item DELETE\_SAVED\_LOCATION (savedLocationId) \\
+      \item DELETE\_SAVED\_LOCATION \\
         Egy előzőleg elmentett pozíció törlése annak azonosítója alapján.
     \end{itemize}
 

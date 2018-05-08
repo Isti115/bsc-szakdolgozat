@@ -13,7 +13,7 @@ illetve böngészőtől független önálló becsomagolt állományból is.
   https://electronjs.org/
 
   \item \textbf{Redux}: Az alkalmazás központi állapotának tárolásához és
-  kezeléséhez. (A tradícionális MVC architektúrából leginkább a modell és a
+  kezeléséhez. (A tradicionális MVC architektúrából leginkább a modell és a
   kontroller kombinációjának feleltethető meg.) \\
   https://redux.js.org/
 
@@ -51,7 +51,7 @@ Itt adhatóak meg az aktuális réteg úgymond "feliratkozásai", tehát, hogy m
 eszköz melyik csatornáján érkező adatok megjelenítését végezze.
 Beállítható továbbá a jelölők közötti távolság, hogy rácspontokon kerüljenek-e
 elhelyezésre, vagy pedig minél közelebb a mérés helyéhez, valamint a skála
-végpontjai, hogy automatikusan skálázódjon-e újabb extremális érétkek
+végpontjai, hogy automatikusan skálázódjon-e újabb extremális értékek
 érkezésekor, illetve hogy lineáris vagy pedig logaritmikus legyen.
 
 \subsubsection{HeatmapVectorSource}
@@ -63,8 +63,9 @@ történő szinkonizálása is ebben az objektumban történik, így újratölt�
 vesznek el az eddigi mérés eredményei.
 
 \subsubsection{HeatmapLayerPresentation}
-A hőtérképet megjelenítő réteg. Kirajzolja a vektor forrásból származó jelölőket
-és a térkép sarkába pedig egy színátmenetes skálát az értékekhez.
+A hőtérképet megjelenítő réteg. Kirajzolja a \verb|HeatmapVectorSource|-ból
+származó jelölőket, a térkép sarkába pedig egy színátmenetes skálát az
+értékekhez.
 
 \subsubsection{MapReferenceRequestHandler}
 A központi OpenLayers térkép példány objektumhoz történő közvetlen hozzáférésre
@@ -79,10 +80,11 @@ kontextus objektumából el tudja érni.
 \subsubsection{MapViewManager}
 A központi OpenLayers térkép példány nézeti objektumának kezelésére szolgáló
 osztály. Folyamatosan tárolja az aktuális pozítiót, elfordulást és nagyítást,
-valamint feliratkozik az ezekhez tartozó eseményekhez, hogy mindig frissíteni
-tudja az értékeket, ha szükséges, így ezek az adatok bármikor lekérdezhetőek
-belőle. Ezen felül képes a térkép nézeti paraméterének módosításaira is például
-egy elmentett állapot visszatöltéséhez, vagy mondjuk adott drónhoz ugráshoz.
+valamint feliratkozik az ezekhez tartozó OpenLayers API által nyújtutt
+eseményekre, hogy mindig frissíteni tudja az értékeket, ha szükséges, így ezek
+az adatok bármikor lekérdezhetőek belőle. Ezen felül képes a térkép nézeti
+paraméterének animált módosításaira is például egy elmentett állapot
+visszatöltéséhez, vagy mondjuk adott drónhoz ugráshoz.
 
 \subsubsection{SavedLocationEditorDialog}
 Az elmentett térképállapotok szerkesztésére szolgáló dialógusablak, amelyben
@@ -92,7 +94,8 @@ foka, elforgatási szöge és nagyítási mértéke, illetve törölhető is a b
 \subsubsection{SavedLocationList}
 Az elmentett térképállapotok felsorolására szolgáló lista, melynek első eleme
 állandóan a jelenlegi állapotot tartalmazza, és arra történő kattintással az
-aktuális adatok felvehetőek a listába.
+aktuális adatok felvehetőek a listába, a lista másik elemeire kattintva
+betöltődnek
 
 \subsubsection{GeoJSONLayerSettingsPresentation}
 A GeoJSON formátumban tárolt geometriák megjelenítésére szolgáló réteg
@@ -117,9 +120,9 @@ A térképpel kapcsolatos eszközöket tartalmazó eszköztár. Különböző m�
 választhatóak rajta, amik az egérrel végrehajtható akciókat befolyásolják. Az
 elérhető módok: kijelölés, mozgatás, nagyítás. Található még rajta továbbá egy
 szövegdoboz, ami a térkép elfordulását mutatja fokokban, és a felhasználó által
-is átírható egy kivánt szög beállításának céljából. Ezeken felül még két gombot
+is átírható egy kívánt szög beállításának céljából. Ezeken felül még két gombot
 tartalmaz, egyet az északi orientáció visszaállítására, egyet pedig a térkép oly
-módon történő pozícionálására, hogy az összes jelenleg látható objektum
+módon történő pozicionálására, hogy az összes jelenleg látható objektum
 beleférjen a képbe.
 
 \subsubsection{ContextMenu}
@@ -129,12 +132,12 @@ kiadható utasításokat tartalmazza. (Felszállás, leszállás, visszatérés 
 kiindulópontra, kikapcsolás.)
 
 \subsubsection{FilterableSortableTable}
-Adatok táblázatban szűrhető és sorbarendezhető táblázatban történő
-megjelenítésére szolgáló osztály. Szűrés szempontjából három különböző fajta
-értéktípust támogat. Felsorolható adattípus esetén az egyes típusok ki és
-bekapcsolását, tartomány esetén intervallumra való leszűkítést, szöveges adat
-esetén pedig keresést a szöveg tetszőleges pontján. Sorbarendezéshez minden
-oszlophoz külön külön saját összehasonlító függvény adható meg.
+Adatok szűrhető és sorbarendezhető táblázatban történő megjelenítésére szolgáló
+osztály. Szűrés szempontjából három különböző fajta értéktípust támogat.
+Felsorolható adattípus esetén az egyes típusok ki és bekapcsolását, tartomány
+esetén intervallumra való leszűkítést, szöveges adat esetén pedig keresést a
+szöveg tetszőleges pontján. Sorbarendezéshez minden oszlophoz külön-külön saját
+összehasonlító függvény adható meg.
 
 \subsubsection{LogPanel}
 
@@ -153,24 +156,38 @@ billentyű lenyomását követően üzenet küldhető az adott drónnak.
 \subsubsection{OwnLocationLayerSettingsPresentation}
 
 A felhasználó geolokációját megjelenítő réteg beállításait tartalmazó komponens.
-A szoftver aktuális állapotában nem rendelkezik más beállítással a láthatóság
-ki-- és bekapcsolására szolgáló gombon kívül.
+A szoftver aktuális állapotában nem rendelkezik más beállítássi lehetőséggel a
+láthatóság ki-- és bekapcsolására szolgáló gombon kívül.
 
 \subsubsection{OwnLocationVectorSource}
 
-A felhasználó geolokációt jelölő ikon előállításáért és újabb pozícióra vagy
+A felhasználó geolokációját jelölő ikon előállításáért és újabb pozícióra vagy
 elfordulásra vonatkozó adatok érkezésekor történő frissítéséért felelős osztály.
+Az OpenLayers beépített Geolocation és DeviceOrientation osztályaira épülő
+ol-react komponensek segítségével szerzi meg a szükséges pozícióra és irányra
+vonatkozó információkat, majd pedig ezek alapján kirajzolja a jelölőt a térkép
+megfelelő pontjára a kellő mértékben elforgatva.
 
 \subsubsection{OwnLocationLayerPresentation}
 
-A felhasználó geolokációjának térképen való megjelenítéséért felelős osztály.
+Az \verb|OwnLocationVectorSource| által előállított ikon térképen való
+megjelenítéséért felelős osztály.
 
 \subsubsection{HotkeyHandler}
 
 A billentyűparancsok érzékeléséért és a hozzájuk rendelt feladatok
-végrehajtásáért felelős osztály. Ez egy konténerként szolgáló komponens
-segítéségével kerül megvalósítására, mely figyeli a rajta keresztül érkező
-billenytűlenyomás eseményeket.
+végrehajtásáért felelős osztály. A felület gyökér elemén, a dokumentum törzsén
+iratkozik fel a billentyűeseményekre, és amennyiben egy lenyomott kombinációhoz
+tartozik akció a \textit{hotkeys.js} konfigurációs file-ban, akkor végrehajtja
+azt. Ez alól kivételt képeznek az \verb|input| és a \verb|textarea| típusú
+felületi elemekből származó események.
+
+A komponens a konfigurációs file-ban megadott billentyűkombinácókon kívül
+beregisztrálja a gyorsbillentyűk alapján automatikusan generált súgó
+megjelenítésének akcióját a "?" begépelésére szolgáló billentyűkombinációra.
+A kombinációk egyezésének érzékelése történhet a lenyomott gombok alapján,
+valamint a rendszer által ebből generált karakter alapján is, így tetszés
+szerint beállítható billentyűkiosztástól függő és független gyorsbillentyű is.
 
 \begin{figure}[H]
   \centering
