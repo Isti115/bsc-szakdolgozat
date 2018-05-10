@@ -5,9 +5,14 @@ A jövőre nézve a projekt továbbfejlesztésének nagyon sok iránya képzelhe
 Ezek közül néhány példát hozva megemlíteném a más gyártótól származó drónokkal
 való kommunikáció megvalósításának lehetőségét. A kereskedelmi forgalomban
 elterjedtebb márkájú kopterek közül jó néhány rendelkezik nyíltan közzétett
-specifikációval a rádiós kommunikációját illetően, továbbá sokszor azoknak a
-drónoknak is megtalálható a visszafejtett protokolljuk, amelyek nem rendelkeznek
-ilyen jellegű publikus dokumentációval.
+specifikációval a rádiós kommunikációját illetően (ilyen gyártó például a
+Parrot, melynek weboldaláról letölthető egy nyílt SDK és komplett fejlesztői
+útmutató is van hozzá), továbbá sokszor azoknak a drónoknak is megtalálható a
+visszafejtett protokolljuk, amelyek nem rendelkeznek ilyen jellegű publikus
+dokumentációval. A szerver jelenleg a széles körben elterjedt MAVLink protokoll
+segítségével kommunikál a drónokon lévő Pixhawk autopilótával, így akár már
+aktuális állapotában is kompatibilisnek tekinthető számos harmadik féltől
+származó eszközzel.
 
 Egy másik lehetőség azon az észrevételen alapul, hogy a mai világban már
 igencsak elterjedt mobil eszközöknek köszönhetően sokaknak a zsebében lapul
