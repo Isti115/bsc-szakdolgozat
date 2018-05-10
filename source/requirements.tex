@@ -1,11 +1,27 @@
 \section{Követelmények}
 
-Szerver oldalon szükséges egy számítógép, amely hardware tekintetében
+Szerver oldalon tehát szükséges egy számítógép, amely hardware tekintetében
 rendelkezik Wi-Fi rádióval, vagy csatlakoztatva van hozzá XBee adó-vevő.
-Szoftver területén megfelelő Wi-Fi vagy XBee driver, illetve \verb|python 2.7| a
-követelmény.
+Szoftver területén megfelelő Wi-Fi vagy XBee driver, illetve a szerver
+kódjának futtatásához \verb|python 3.6| a követelmény.
 
-A kliens oldal kódjának lefordítása \verb|nodejs| segítségével zajlik, a
-függőségek kezelését az \verb|npm| csomagkezelő végzi, az elkészült állomány egy
+A kliens oldal kódjának lefordítása \verb|nodejs| által zajlik, a függőségek
+kezelését az \verb|npm| csomagkezelő végzi, az elkészült állomány egy
 webszerverről kiszolgálva egy böngészőből érhető el, vagy pedig \verb|electron|
 segítségével becsomagolva önállóan futtatható programként.
+
+A forráskód birtokában annak gyökérmappájában kiadva az \verb|"npm install"|
+parancsot telepíthetőek a függőségek. Ezt követően az \verb|"npm start"|
+utasítás elvégzi a JavaScript kód kötegelését és kiszolgálja a kliens
+alkalmazást alkotó tartalmakat egy webszerver segítségével, amely egy
+böngészőből alapértelmezetten a http://localhost:8080/ címen érhető el.
+
+A program önállóan futó alkalmazásként történő használatának előfeltétele, hogy
+az electron csomag globálisan telepítve legyen. Amennyiben ez teljesül, akkor az
+\verb|"npm run start:electron"| parancs indítja el saját külön ablakban a
+klienst. A terjesztésre szánt futtatható állomány előállításához szükség van még
+ezeken felül az \verb|"electron-builder"| meglétére. Ennek a hordozható file-nak
+a létrehozását az \verb|"npm run dist"| utasítás kiadásával lehet kezdeményezni.
+
+% TODO
+(Legyen rajta a DVD-n a node\_modules mappa?)

@@ -8,10 +8,12 @@ illetve böngészőtől független önálló becsomagolt állományból is.
 \subsection{Felhasznált főbb könyvtárak}
 
 \begin{itemize}
-  \item \textbf{Electron}: Az önállóan futtatható becsomagolt állomány
-  létrehozásához. \\
-  https://electronjs.org/
+  \item \textbf{React}: A központi állapot nézetté történő leképezésére, a HTML
+  elemek fölött használt állapottal rendelkező komponensek absztrakciójának
+  megteremtésére. (A hagyományos MVC architektúrában leginkább a view szerepét
+  tölti be.) \\
 
+  https://reactjs.org/
   \item \textbf{Redux}: Az alkalmazás központi állapotának tárolásához és
   kezeléséhez. (A tradicionális MVC architektúrából leginkább a modell és a
   kontroller kombinációjának feleltethető meg.) \\
@@ -28,12 +30,6 @@ illetve böngészőtől független önálló becsomagolt állományból is.
   \item \textbf{OpenLayers}: A térképes megjelenítéshez. \\
   https://openlayers.org/
 
-  \item \textbf{React}: A központi állapot nézetté történő leképezésére, a HTML
-  elemek fölött használt állapottal rendelkező komponensek absztrakciójának
-  megteremtésére. (A hagyományos MVC architektúrában leginkább a view szerepét
-  tölti be.) \\
-  https://reactjs.org/
-
   \item \textbf{ol-react}: Az OpenLayers könyvtár által nyújtott funkciók React
   komponensekként való kezeléséhez. \\
   https://www.npmjs.com/package/ol-react
@@ -41,7 +37,13 @@ illetve böngészőtől független önálló becsomagolt állományból is.
   \item \textbf{mini-signals}: Az alkalmazás komponensei közötti üzenetküldésre.
   \\
   https://github.com/Hypercubed/mini-signals
+
+  \item \textbf{Electron}: Az önállóan futtatható becsomagolt állomány
+  létrehozásához. \\
+  https://electronjs.org/
 \end{itemize}
+
+// TODO: Könytárak részletesebb kifejtése
 
 \subsection{A megvalósított osztályok}
 
@@ -49,6 +51,15 @@ illetve böngészőtől független önálló becsomagolt állományból is.
 A hőtérkép réteg beállításait tartalmazó komponens.
 Itt adhatóak meg az aktuális réteg úgymond "feliratkozásai", tehát, hogy melyik
 eszköz melyik csatornáján érkező adatok megjelenítését végezze.
+
+Ezek a csatornák a következőképpen működnek. A szerverben minden drónhoz (UAV)
+lehetnek rendelve eszközök (device), amiken belül akár több különböző csatorna
+(channel) is elérhetővé tehető. Amennyiben egy ilyen "UAV/device/channel"
+elérési útra feliratkozik egy kliens, akkor minden alkalommal, amikor elérhetővé
+válik egy újabb mérési eredmény, arról értesítést kap a szervertől egy olyan
+objektum formájában, ami tartalmazzaa mérés eredményét, valamint a hozzá
+tartozó időbélyeget és pozíciót.
+
 Beállítható továbbá a jelölők közötti távolság, hogy rácspontokon kerüljenek-e
 elhelyezésre, vagy pedig minél közelebb a mérés helyéhez, valamint a skála
 végpontjai, hogy automatikusan skálázódjon-e újabb extremális értékek

@@ -16,6 +16,8 @@ lehetséges az elérési cím és port (alapértelmezetten 5000) manuális megad
 illetve az SSDP (Simple Service Discovery Protocol) hálózati felderítési
 protokoll segítségével.
 
+
+
 \section{A felület kezelése}
 
 \subsection{Kezdeti állapot}
@@ -62,7 +64,8 @@ belül a "Heatmap" opciót választva.
 
 Ekkor a rendszer lehetőséget biztosít a megfigyelni kívánt csatornákra történő
 fel-- és leiratkozásra. Ez az "Edit subscriptions" gomb által megjeleníthető
-dialógusablakban tehető meg.
+dialógusablakban tehető meg. Ezen feliratkozások adott drónokon (UAV) elérhető
+eszközök (device) csatonáira (channel) vonatkoznak.
 
 Beállítható továbbá egy küszöbszint, ami alatt az értékeket fehérrel jelzi,
 valamint a színskála két széléhez tartozó érték is megadható manuálisan, vagy
@@ -114,9 +117,12 @@ kívánt adatok.
 \subsection{GeoJSON megjelenítése}
 
 A GeoJSON egy elterjedt térképészeti formátum, mely geográfiai objektumok
-leírására alkalmas. Drónok vezérlésénél és monitorozásánál szükség lehet előre
-megadott létező vagy virtuális terepobjektumok megjelenítésére a térképen, mint
-például környező akadályok, épületek, vagy esetleg egy kijelölt repülési zóna.
+leírására alkalmas. A jelenlegi legfrissebb (2016-ban kiadott) pontos
+specifikációja elérhető itt: https://tools.ietf.org/html/rfc7946
+
+Drónok vezérlésénél és monitorozásánál szükség lehet előre megadott létező vagy
+virtuális terepobjektumok megjelenítésére a térképen, mint például környező
+akadályok, épületek, vagy esetleg egy kijelölt repülési zóna.
 
 Ezek megjelenítéséhez egy speciális réteg hozzáadása szükséges. Ez a rétegek
 panelen az "Add new layer" gomb megnyomásával lehetséges. Amennyiben az ezt
@@ -130,7 +136,7 @@ objektum megjelenik a térképen.
 
 GeoJSON formátumú adatok előállításához több különböző szoftver is elérhető, de
 akár saját kézzel is elkészíthető az objektumokat leíró forráskód. Az alábbi
-illusztráción ( \ref{fig:geojson}. ábra) elhelyezett poligon például a
+illusztráción (\ref{fig:geojson}. ábra) elhelyezett poligon például a
 http://geojson.io címen elérhető szerkesztő segítségével készült.
 
 \begin{figure}[H]
@@ -246,12 +252,27 @@ jelölő ennek megfelelően követi az elfordulást is.
 
 \subsection{Billentyűkombinációkkal történő vezérlés}
 
-Az alkalmazásban elérhető Billentyűkombinációk bárhonnan működnek, amennyiben
+Az alkalmazásban elérhető billentyűkombinációk bárhonnan működnek, amennyiben
 nincsen aktív beviteli mező. A teljes lista megtekinthető a "?" szimbólum
-gépelésére szolgáló Billentyűkombináció lenyomásával.
+gépelésére szolgáló billentyűkombináció lenyomásával.
 
-(Ide írjam le a teljes listát?)
+A gombok olyan módon vannak megadva, hogy Windows és Linux alatt futtatva a
+PlatMod ("Platform Modifier") billentyű a Control gombnak feleljen meg, míg
+MacOS (OSX) rendszereken ugyanez a Command gombhoz tartozzon.
 
+Az alapérelmezett gyorsbillentyűk kiválasztásánál fontos szempont volt az
+igazodás az alapvetően elterjedt és így már megszokott kombinációkhoz. Ebből
+következik például, hogy a "PlatMod + A" kombinációhoz az összes drón
+kijelölése akció van hozzárendelve, míg a "PlatMod + Shift + A" lenyomásával
+pedig megszüntethető a kijelölés. Hasonló elven alapul a "Ctrl + Shift + C", ami
+a térképen aktuálisan a kurzor által mutatott koordináták vágólapra másolását
+eredményezi.
+
+Elérhetőek továbbá billentyűkombinációk az eszközök váltására, a térkép
+megjelenésének és nézetének módosítására, valamint drónoknak kiadható parancsok
+küldésére.
+
+% TODO: \newpage
 
 \subsection{A szűrhető és rendezhető táblák kezelése}
 \label{filterable_sortable_table}
