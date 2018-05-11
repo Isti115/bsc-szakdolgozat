@@ -12,7 +12,8 @@
   kontroller kombinációjának feleltethető meg.) \\
   https://redux.js.org/
 
-  \item \textbf{OpenLayers}: A térképes megjelenítéshez. \\
+  \item \textbf{OpenLayers}: Az interaktív térkép és a rajta megjelenő
+  objektumok kirajzolásához. \\
   https://openlayers.org/
 
   \item \textbf{ol-react}: Az OpenLayers könyvtár által nyújtott funkciók React
@@ -42,14 +43,40 @@
 
 Mint az már korábban említésre került, a modell és a kontroller szerepét
 egyaránt a Redux csomag tölti be. Ennek működése azon alapul, hogy a háttérben
-több kisebb független modell összekapcsolásával jön létre egy nagyobb állapot,
-melyeknek a módosítása kizárólag előre megadott akciók segítségével történik,
-így garantálva a konzisztenciát.
+több kisebb független modell összekapcsolásával jön létre egy összetettebb
+állapot, melynek a frissebb állapotra cserélése kizárólag előre megadott akciók
+segítségével történik, így garantálva a konzisztenciát.
 
-// TODO: Könytárak részletesebb kifejtése
+A Redux alapon működő React megjelenítési réteget használó alkalmazások egyfajta
+állandó körforgást valósítanak meg, amit az alábbi kép (\ref{fig:redux_react}.
+ábra) szemléltet. A folyamat egy kezdeti állapotból indul, amely alapján a
+React komponensek elvégzik az első megjelenítést. Ezt követően a React
+komponensek kezdeményezhetnek akciókat, amelyek segítségével a régi állapotból
+az adott akcióhoz tartozó redukáló függvények létrehoznak egy új állapotot. Az
+új állapot bekerül az állapottárba, onnan pedig továbbítódik a komponensek felé,
+ezáltal, amennyiben szükséges, egy újrarajzolást kezdeményezve. A központi
+állapotobjektum tehát soha nem mutálódik, ehelyett mindig egy új verzió készül
+belőle. Így az egész folyamat felfogható úgy, hogy az aktuális állapot mindig
+egy kezdeti állapotból és a rajta végrehajtott akciók sorozatából redukálva
+kapható meg, a megjelenő felület pedig ennek az aktuális állapotnak a
+leképeződése.
 
-\noindent Perzisztencia céljából ezen állapot bizonyos részei kerülnek adott
-időközönként automatikusan mentésre a böngésző által felkínált
-\verb|localStorage| API segítségével, az alkalmazás megnyitásakor pedig innen
-töltődnek be, így például a beállított színek és az elmentett térkép állapotok
-megmaradnak az oldal frissítése után is.
+\begin{figure}[H]
+  \includegraphics[width=\textwidth]{redux_react.pdf}
+  \caption{A Redux és a React együttműködése}
+  \label{fig:redux_react}
+\end{figure}
+
+A kép (\ref{fig:redux_react}. ábra) "Nézet" buborékon kívüli része tehát a Redux
+folyamatait ábrázolja, a "Nézet" buborékon belül pedig a React-hez tartozó rész
+látható. Azon belül találhatóak úgynevezett "okos" és "buta" komponensek. Ezek
+között az tesz különbséget, hogy míg az "okos" komponensek tisztában vannak az
+állapotobjektum szerkezetével, addig a "buta" komponenseknek már csak a
+megjelenítéshez szükséges adatokat továbbítják.
+
+\noindent Perzisztencia céljából a központi állapot bizonyos részei adott
+időközönként automatikusan mentésre kerülnek a böngésző által felkínált
+\verb|localStorage| API segítségével az alkalmazást futtató számítógépre, az
+alkalmazás megnyitásakor pedig innen töltődnek be, így például a beállított
+színezési predikátumok és a térkép elmentett állapotai megmaradnak az oldal
+frissítése után is.

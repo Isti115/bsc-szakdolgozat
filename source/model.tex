@@ -1,12 +1,3 @@
-\section{Háttér modell}
-
-Mint az már korábban említésre került, a modell és a kontroller szerepét
-egyaránt a Redux csomag tölti be. A háttérben több kisebb független modell
-összekapcsolásával jön létre egy nagyobb állapot, melyeknek a módosítása
-kizárólag előre megadott akciók segítségével történik, így garantálva a
-konzisztenciát. Ezek közül a program általam megvalósított részeihez a
-következők relevánsak:
-
 \begin{itemize}
 
   \item \textbf{layers.uavs.parameters.colorPredicates}
@@ -72,9 +63,3 @@ következők relevánsak:
     \end{itemize}
 
 \end{itemize}
-
-\noindent Perzisztencia céljából ezen állapot bizonyos részei kerülnek adott időközönként
-automatikusan mentésre a böngésző által felkínált \verb|localStorage| API
-segítségével, az alkalmazás megnyitásakor pedig innen töltődnek be, így például
-a beállított színek és az elmentett térkép állapotok megmaradnak az oldal
-frissítése után is.
