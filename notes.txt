@@ -1,10 +1,20 @@
+Notes:
+
 LineTrace could be added as well.
+
+---------------
+
+Todo:
 
 Fordítás angol -> magyar
 
 React, Redux működése
 Alkalmazás folyamatai
 
-Feature-önként bemutatni (nem külön osztályok és modell)
-
 Tesztelés
+
+---------------
+
+Done:
+
+Feature-önként bemutatni (nem külön osztályok és modell)

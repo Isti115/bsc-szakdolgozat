@@ -1,0 +1,55 @@
+\subsection{Felhasznált főbb könyvtárak}
+
+\begin{itemize}
+  \item \textbf{React}: A központi állapot nézetté történő leképezésére, a HTML
+  elemek fölött használt állapottal rendelkező komponensek absztrakciójának
+  megteremtésére. (A hagyományos MVC architektúrában leginkább a view szerepét
+  tölti be.) \\
+  https://reactjs.org/
+
+  \item \textbf{Redux}: Az alkalmazás központi állapotának tárolásához és
+  kezeléséhez. (A tradicionális MVC architektúrából leginkább a modell és a
+  kontroller kombinációjának feleltethető meg.) \\
+  https://redux.js.org/
+
+  \item \textbf{OpenLayers}: A térképes megjelenítéshez. \\
+  https://openlayers.org/
+
+  \item \textbf{ol-react}: Az OpenLayers könyvtár által nyújtott funkciók React
+  komponensekként való kezeléséhez. \\
+  https://www.npmjs.com/package/ol-react
+
+  \item \textbf{Golden Layout}: A dinamikus, felhasználó által személyre szabható
+  felület kialakítására. \\
+  https://golden-layout.com/
+
+  \item \textbf{Material UI}: A felhasználói felületen megjelenő elemek
+  kinézetéhez. \\
+  http://www.material-ui.com/ | https://material-ui-next.com/
+
+  \item \textbf{mini-signals}: Az alkalmazás komponensei közötti üzenetküldésre.
+  \\
+  https://github.com/Hypercubed/mini-signals
+
+  \item \textbf{Electron}: Az önállóan futtatható becsomagolt állomány
+  létrehozásához. \\
+  https://electronjs.org/
+\end{itemize}
+
+\section{Háttér modell}
+
+\subsection{A Redux működése}
+
+Mint az már korábban említésre került, a modell és a kontroller szerepét
+egyaránt a Redux csomag tölti be. Ennek működése azon alapul, hogy a háttérben
+több kisebb független modell összekapcsolásával jön létre egy nagyobb állapot,
+melyeknek a módosítása kizárólag előre megadott akciók segítségével történik,
+így garantálva a konzisztenciát.
+
+// TODO: Könytárak részletesebb kifejtése
+
+\noindent Perzisztencia céljából ezen állapot bizonyos részei kerülnek adott
+időközönként automatikusan mentésre a böngésző által felkínált
+\verb|localStorage| API segítségével, az alkalmazás megnyitásakor pedig innen
+töltődnek be, így például a beállított színek és az elmentett térkép állapotok
+megmaradnak az oldal frissítése után is.

@@ -5,46 +5,6 @@
 A kliens program webes technológiákon alapul, így működtethető böngészőből,
 illetve böngészőtől független önálló becsomagolt állományból is.
 
-\subsection{Felhasznált főbb könyvtárak}
-
-\begin{itemize}
-  \item \textbf{React}: A központi állapot nézetté történő leképezésére, a HTML
-  elemek fölött használt állapottal rendelkező komponensek absztrakciójának
-  megteremtésére. (A hagyományos MVC architektúrában leginkább a view szerepét
-  tölti be.) \\
-
-  https://reactjs.org/
-  \item \textbf{Redux}: Az alkalmazás központi állapotának tárolásához és
-  kezeléséhez. (A tradicionális MVC architektúrából leginkább a modell és a
-  kontroller kombinációjának feleltethető meg.) \\
-  https://redux.js.org/
-
-  \item \textbf{Golden Layout}: A dinamikus, felhasználó által személyre szabható
-  felület kialakítására. \\
-  https://golden-layout.com/
-
-  \item \textbf{Material UI}: A felhasználói felületen megjelenő elemek
-  kinézetéhez. \\
-  http://www.material-ui.com/ | https://material-ui-next.com/
-
-  \item \textbf{OpenLayers}: A térképes megjelenítéshez. \\
-  https://openlayers.org/
-
-  \item \textbf{ol-react}: Az OpenLayers könyvtár által nyújtott funkciók React
-  komponensekként való kezeléséhez. \\
-  https://www.npmjs.com/package/ol-react
-
-  \item \textbf{mini-signals}: Az alkalmazás komponensei közötti üzenetküldésre.
-  \\
-  https://github.com/Hypercubed/mini-signals
-
-  \item \textbf{Electron}: Az önállóan futtatható becsomagolt állomány
-  létrehozásához. \\
-  https://electronjs.org/
-\end{itemize}
-
-// TODO: Könytárak részletesebb kifejtése
-
 \subsection{A megvalósított osztályok}
 
 \subsubsection{HeatmapLayerSettingsPresentation}
@@ -105,8 +65,10 @@ foka, elforgatási szöge és nagyítási mértéke, illetve törölhető is a b
 \subsubsection{SavedLocationList}
 Az elmentett térképállapotok felsorolására szolgáló lista, melynek első eleme
 állandóan a jelenlegi állapotot tartalmazza, és arra történő kattintással az
-aktuális adatok felvehetőek a listába, a lista másik elemeire kattintva
-betöltődnek
+aktuális adatok felvehetőek a listába. A lista egyéb elemeire kattintva az
+azokhoz tartozó paraméterek által jelölt állapotba ugrik a térkép, a mellettük
+lévő fogaskerékre kattintva pedig az adott állapot szerkesztését és törtését
+lehetővé tevő dialógusablak nyílik meg.
 
 \subsubsection{GeoJSONLayerSettingsPresentation}
 A GeoJSON formátumban tárolt geometriák megjelenítésére szolgáló réteg
@@ -126,15 +88,23 @@ számára.
 Megjeleníti a \verb|GeoJSONVectorSource| által előállított geometriákat a
 térképen.
 
-\subsubsection{MapToolbar}
-A térképpel kapcsolatos eszközöket tartalmazó eszköztár. Különböző módok
-választhatóak rajta, amik az egérrel végrehajtható akciókat befolyásolják. Az
-elérhető módok: kijelölés, mozgatás, nagyítás. Található még rajta továbbá egy
-szövegdoboz, ami a térkép elfordulását mutatja fokokban, és a felhasználó által
-is átírható egy kívánt szög beállításának céljából. Ezeken felül még két gombot
-tartalmaz, egyet az északi orientáció visszaállítására, egyet pedig a térkép oly
-módon történő pozicionálására, hogy az összes jelenleg látható objektum
-beleférjen a képbe.
+% \subsubsection{MapToolbar}
+% A térképpel kapcsolatos eszközöket tartalmazó eszköztár. Különböző módok
+% választhatóak rajta, amik az egérrel végrehajtható akciókat befolyásolják. Az
+% elérhető módok: kijelölés, mozgatás, nagyítás. Található még rajta továbbá egy
+% szövegdoboz, ami a térkép elfordulását mutatja fokokban, és a felhasználó által
+% is átírható egy kívánt szög beállításának céljából. Ezeken felül még két gombot
+% tartalmaz, egyet az északi orientáció visszaállítására, egyet pedig a térkép oly
+% módon történő pozicionálására, hogy az összes jelenleg látható objektum
+% beleférjen a képbe.
+
+\subsubsection{UAVToolbar}
+A drónokkal kapcsolatos eszközöket tartalmazó eszköztár. Kezdeményezhető róla
+parancs kiadása a jelenleg kijelölt drónoknak. (Felszállás, leszállás,
+visszatérés a kiindulópontra, kikapcsolás.) Ezen felül megnyitható róla a
+tetszőleges üzenet küldésére szolgáló dialógusablak is. (Ez a lehetőség a
+szoftver jelenlegi állapotában nem bír valódi funkcionalitással, a jövőre nézve
+lesz jelentőssége.)
 
 \subsubsection{ContextMenu}
 A térkép egy üres részén vagy egy drón fölött kezdeményezett jobb egérgomb
@@ -151,27 +121,23 @@ szöveg tetszőleges pontján. Sorba rendezéshez minden oszlophoz külön-kül�
 összehasonlító függvény adható meg.
 
 \subsubsection{LogPanel}
-
 A naplóbejegyzéseket tartalmazó panel \verb|FilterableSortableTable|
 segítségével implementálva. Három oszlopa van. A bejegyzés súlyossága
 (felsorolható típusú: információ, figyelmeztetés vagy hiba), bejegyzés időpontja
 (tartomány típusú), valamint a bejegyzés szövege (szöveg típusú).
 
 \subsubsection{GroundControlPanel}
-
 Egy táblázatot tartalmazó panel, melyben a drónok részletes adatai találhatóak,
-mint például koordináták, magasság, akkufeszültség, aktuálisan futó algoritmus.
-A sorok közül nyíl billentyűkkel vagy kattintással kiválasztva egyet az enter
-billentyű lenyomását követően üzenet küldhető az adott drónnak.
+mint például koordináták, magasság, akkufeszültség, vagy esetleges hibakód.
+A drón azonosítóját tartalmazó oszlop szöveg típusú, az összes többi numerikus,
+tehát intervallum típusú.
 
 \subsubsection{OwnLocationLayerSettingsPresentation}
-
 A felhasználó geolokációját megjelenítő réteg beállításait tartalmazó komponens.
 A szoftver aktuális állapotában nem rendelkezik más beállítási lehetőséggel a
 láthatóság ki-- és bekapcsolására szolgáló gombon kívül.
 
 \subsubsection{OwnLocationVectorSource}
-
 A felhasználó geolokációját jelölő ikon előállításáért és újabb pozícióra vagy
 elfordulásra vonatkozó adatok érkezésekor történő frissítéséért felelős osztály.
 Az OpenLayers beépített Geolocation és DeviceOrientation osztályaira épülő
@@ -180,12 +146,10 @@ vonatkozó információkat, majd pedig ezek alapján kirajzolja a jelölőt a t�
 megfelelő pontjára a kellő mértékben elforgatva.
 
 \subsubsection{OwnLocationLayerPresentation}
-
 Az \verb|OwnLocationVectorSource| által előállított ikon térképen való
 megjelenítéséért felelős osztály.
 
 \subsubsection{HotkeyHandler}
-
 A billentyűparancsok érzékeléséért és a hozzájuk rendelt feladatok
 végrehajtásáért felelős osztály. A felület gyökér elemén, a dokumentum törzsén
 iratkozik fel a billentyűeseményekre, és amennyiben egy lenyomott kombinációhoz
@@ -200,8 +164,4 @@ A kombinációk egyezésének érzékelése történhet a lenyomott gombok alapj
 valamint a rendszer által ebből generált karakter alapján is, így tetszés
 szerint beállítható billentyűkiosztástól függő és független gyorsbillentyű is.
 
-\begin{figure}[H]
-  \centering
-    \includegraphics[width=\textwidth]{class_diagram.pdf}
-  \caption{Osztálydiagram}
-\end{figure}
+

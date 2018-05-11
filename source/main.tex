@@ -39,6 +39,11 @@
   }
 }
 
+% \usepackage{changepage}
+% \newenvironment{subs}
+%   {\adjustwidth{3em}{0pt}}
+%   {\endadjustwidth}
+
 % \onehalfspacing
 \linespread{1.25}
 \begin{document}
@@ -63,8 +68,12 @@
 \newpage\part{Fejlesztői dokumentáció}
 
 \input{./functional-requirements.tex}
-\input{./software-architecture.tex}
-\input{./model.tex}
+\input{./used-libraries.tex}
+
+\input{./feature-implementations.tex}
+% \input{./software-architecture.tex}
+% \input{./model.tex}
+\input{./testing.tex}
 
 \newpage\part{Befejezés}
 
