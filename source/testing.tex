@@ -9,7 +9,7 @@ csoportosítva.
 \begin{itemize}
 
   \item Egy hőtérkép réteg létrehozása után a feliratkozások beállítását
-  követően azonnal elkezdtek megjelenni a mérési pontok a téképen.
+  követően azonnal elkezdtek megjelenni a mérési pontok a térképen
 
   \item A színezési függvény, az értékhatárok és a színtartomány bármelyikének
   átállítását követően az "UPDATE PARAMETERS" gomb a jelölők újrarajzolását
@@ -45,8 +45,8 @@ csoportosítva.
   \item Hibás tartalom esetén az "IMPORT GEOJSON" gomb megnyomását követően a
   képernyő alsó szélén felugró üzenet jelzi, hogy helytelen a GeoJSON adat. Az
   üres mező is hibás adatnak számít, hiszen a nulla hosszúságú sztring nem valid
-  GeoJSON. (A mező kezdeti értéke "{}".) A bevitt adat ekkor nem kerül
-  rögzítésre, így a legultolsó valid tartalom marad kirajzolva a térképre.
+  GeoJSON. (A mező kezdeti értéke "\{\}".) A bevitt adat ekkor nem kerül
+  rögzítésre, így a legutolsó valid tartalom marad kirajzolva a térképre.
 
   \item Helyes tartalom esetén az import "IMPORT GEOJSON" gombra kattintva az
   adat által leírt objektumok megjelennek a térképen a beállított kitöltési és
@@ -130,7 +130,7 @@ csoportosítva.
 
   \item Ha elérhető mágneses orientációérzékelő is az eszközben, akkor a jelölő
   követi annak elfordulását.
-  (Ez a funckió már előzőleg működőképes volt, azonban hoszzú időn át nem került
+  (Ez a funkció már előzőleg működőképes volt, azonban hosszú időn át nem került
   sor az ellenőrzésére abból az okból, hogy mágneses érzékelő általában csak
   mobiltelefonokban van. Laptopról legfeljebb csak emulálni lehet, a telefonról
   történő teszteléshez pedig publikus https szerver indítása szükséges, mert a
@@ -139,7 +139,7 @@ csoportosítva.
   hogy csak most, miután tesztelés közben nem működött, derült fény arra, hogy
   az eredeti megvalósításához használt, OpenLayers könyvtárból származó
   DeviceOrientation osztály a legutóbbi verzióban már elavultnak lett
-  nyilvánítva és a tapasztalat alapján nem is funckcionál rendesen. Áttérve a
+  nyilvánítva és a tapasztalat alapján nem is funkcionál rendesen. Áttérve a
   közvetlenül a böngésző által rendelkezésre bocsátott "deviceorientation"
   esemény figyelésére újra működésbe lépett a funkció, mint az a képen
   (\ref{fig:phone_compass}. ábra) is látható.)
