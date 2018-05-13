@@ -29,7 +29,6 @@ sávról ( \ref{fig:initial_state}. ábra /\circled{1}) kattintással vagy húz�
 a felületre helyezve.
 
 \begin{figure}[H]
-  \center
   \includegraphics[width=\textwidth]{screenshots/initial_state.png}
   \caption{A kliens program alapállapota}
   \label{fig:initial_state}
@@ -63,7 +62,7 @@ létrehozása szükséges a rétegek panelen az "Add new layer", majd pedig azon
 belül a "Heatmap" opciót választva.
 
 Ekkor a rendszer lehetőséget biztosít a megfigyelni kívánt csatornákra történő
-fel-- és leiratkozásra. Ez az "Edit subscriptions" gomb által megjeleníthető
+fel-- és leiratkozásra. Ez az "EDIT SUBSCRIPTIONS" gomb által megjeleníthető
 dialógusablakban tehető meg. Ezen feliratkozások adott drónokon (UAV) elérhető
 eszközök (device) csatonáira (channel) vonatkoznak.
 
@@ -77,12 +76,16 @@ színezési függvény is kiválasztható. (Lineáris vagy logaritmikus.)
 Ezen felül megadható a mérési pontok közötti minimális távolság, bekapcsolható a
 rácspontokhoz történő igazítás, továbbá törölni lehet az eddig mért adatokat.
 
+(A rácspontokhoz történő igazítás átkapcsolása és a pontok közötti minimális
+távolság átállítása nem hat az eddig kirajzolt jelölőkre, csak az újonnan
+felvett mérési pontokra, tehát szükséges lehet az eddigi adatok törlése ("CLEAR
+DATA" gomb) a kívánt megjelenítés eléréséhez.)
+
 A kép (\ref{fig:heatmap}. ábra) például egy logaritmikus színezésű, 5 méteres
 sűrűségű rácspontokra igazított hőtérkép látható, amely egy szimulált pontszerű
 forrásból származó radioaktív mérés eredményeit ábrázolja.
 
 \begin{figure}[H]
-  \center
   \includegraphics[width=\textwidth]{screenshots/heatmap.png}
   \caption{Egy hőtérkép kinézete}
   \label{fig:heatmap}
@@ -107,7 +110,6 @@ kitöltve nyílik meg, így az könnyen elmenthető, vagy pedig kézzel bevihet�
 kívánt adatok.
 
 \begin{figure}[H]
-  \center
   \includegraphics[width=\textwidth]{screenshots/saved_locations.png}
   \caption{A mentett pozíciók panelje és a szerkesztésükre alkalmas dialógusablak}
   \label{fig:saved_locations}
@@ -140,7 +142,6 @@ illusztráción (\ref{fig:geojson}. ábra) elhelyezett poligon például a
 http://geojson.io címen elérhető szerkesztő segítségével készült.
 
 \begin{figure}[H]
-  \center
   \includegraphics[width=\textwidth]{screenshots/geojson.png}
   \caption{Egy poligont megjelenítő GeoJSON réteg}
   \label{fig:geojson}
@@ -149,15 +150,40 @@ http://geojson.io címen elérhető szerkesztő segítségével készült.
 \subsection{Parancsok kiadása drónoknak}
 
 A drónoknak jelenleg négy fajta parancs adható ki: felszállás, leszállás,
-visszatérés a kiindulópontra valamint kikapcsolás. Ezek a lehetőségek elérhetők
-a térképen történő jobb egérgombbal végzett kattintáskor felugró menüből
-( \ref{fig:commands}. ábra /\circled{1}), valamint a drónok listáját tartalmazó
-panel tetején található eszköztárról ( \ref{fig:commands}. ábra /\circled{2}).
-Egy parancs kiadását követően a szerver visszajelzést küld annak végrehajtásának
-sikerességéről, ez a válasz pedig bekerül bejegyzésként az eseménynaplóba.
+visszatérés a kiindulópontra valamint kikapcsolás. (A teszt szerver által
+szimulált drónok csak a leszállás és felszállás parancsok végrehajtását
+támogatják.) Ezek a lehetőségek elérhetők a térképen történő jobb egérgombbal
+végzett kattintáskor felugró menüből ( \ref{fig:commands}. ábra /\circled{1}),
+valamint a drónok listáját tartalmazó panel tetején található eszköztárról
+( \ref{fig:commands}. ábra /\circled{2}). Egy parancs kiadását követően a
+szerver visszajelzést küld annak végrehajtásának sikerességéről, ez a válasz
+pedig bekerül bejegyzésként az eseménynaplóba.
+
+Drónok kijelölése a kijelölés ("Select") eszköz kiválasztása után (az alkalmazás
+első indításakor ez az alapértelmezett eszköz) a következőképpen lehetséges:
+\begin{itemize}
+
+  \item Egy drónon történő bal kattintásra az összes többi drón kijelölése
+  megszűnik, az adott drón pedig kijelöltté válik.
+
+  \item Az operációs rendszernek megfelelő módosítóbillentyű (Windows és Linux
+  alatt Control, MacOX (OSX) alatt pedig Command) nyomvatartása melletti bal
+  egérgombbal történő kattintás esetén az adott drón kijelölési állapota
+  megváltozik. (Tehát ha eddig ki volt jelölve, akkor megszűnik a kijelölése, ha
+  pedig nem volt, akkor kijelölődik.)
+
+  \item Az Alt billentyű nyomvatartása melletti bal egérgombbal történő
+  kattintás hatására egy adott drón kijelölése megszüntethető.
+
+  \item A Shift billentyű és a bal egérgomb nyomvatartása mellett húzott
+  téglalap által bekeretezett drónok hozzáadódnak a kijelöléshez.
+
+  \item Az Alt billentyű és a bal egérgomb nyomvatartása mellett húzott
+  téglalap által bekeretezett drónok kijelölése megszűnik.
+
+\end{itemize}
 
 \begin{figure}[H]
-  \center
   \includegraphics[width=\textwidth]{screenshots/commands.png}
   \caption{A drónoknak történő parancskiadás módjai}
   \label{fig:commands}
@@ -179,7 +205,6 @@ rendezésre, továbbá szűrések alkalmazhatók bármelyik oszlopon.
 }
 
 \begin{figure}[H]
-  \center
   \includegraphics[width=\textwidth]{screenshots/log.png}
   \caption{Példa az állapotüzeneteket tartalmazó lista megjelenésére}
   \label{fig:log}
@@ -191,7 +216,7 @@ rendezésre, továbbá szűrések alkalmazhatók bármelyik oszlopon.
 A drónok színkódolására vonatkozó predikátumok megadására a kopter piktogramok
 megjelenítéséért felelős réteg (UAVs) beállításai között van lehetőség.
 Hat szín áll rendelkezésre, ezekhez egy egy JavaScript függvénytörzs rendelhető
-hozzá. Az "Apply changes" gomb megnyomásakor a rendszer megvizsgálja a mezők
+hozzá. Az "APPLY CHANGES" gomb megnyomásakor a rendszer megvizsgálja a mezők
 értékét, és amelyikben hibát talál, azt megjelöli, valamint bejegyzést készít az
 eseménynaplóba a hiba pontos szövegéről, a többit pedig elmenti és alkalmazza a
 drónokra oly módon, hogy a drónok azonosítóit egyesével paraméterül adja
@@ -204,7 +229,6 @@ koptereket zöldre, a négynél nagyobbakat narancssárgára, a "COLLMOT-02"-es 
 "COLLMOT-04"-es drónt pedig kékre színeztük.
 
 \begin{figure}[H]
-  \center
   \includegraphics[width=\textwidth]{screenshots/uav_coloring.png}
   \caption{Példa néhány predikátumra}
   \label{fig:uav_coloring}
@@ -228,7 +252,6 @@ elhelyezkedésük alapján a szélességi és hosszúsági koordinátáik szerin
 }
 
 \begin{figure}[H]
-  \center
   \includegraphics[width=\textwidth]{screenshots/ground_control_view.png}
   \caption{A drónok adatai egy szűrhető és rendezhető táblázatban}
   \label{fig:ground_control_view}
@@ -244,11 +267,13 @@ orientáció megállapítására is például mágneses iránytű segítségéve
 jelölő ennek megfelelően követi az elfordulást is.
 
 \begin{figure}[H]
-  \center
   \includegraphics[width=\textwidth]{screenshots/ownlocation.png}
   \caption{A kliens állomás pozícióját mutató jelölő}
   \label{fig:ownlocation}
 \end{figure}
+
+% TODO: \newpage
+\newpage
 
 \subsection{Billentyűkombinációkkal történő vezérlés}
 
@@ -258,7 +283,7 @@ gépelésére szolgáló billentyűkombináció lenyomásával.
 
 A gombok olyan módon vannak megadva, hogy Windows és Linux alatt futtatva a
 PlatMod ("Platform Modifier") billentyű a Control gombnak feleljen meg, míg
-MacOS (OSX) rendszereken ugyanez a Command gombhoz tartozzon.
+MacOS (OSX) rendszereken ugyanez a Command gombot jelentse.
 
 Az alapérelmezett gyorsbillentyűk kiválasztásánál fontos szempont volt az
 igazodás az alapvetően elterjedt és így már megszokott kombinációkhoz. Ebből
@@ -273,6 +298,7 @@ megjelenésének és nézetének módosítására, valamint drónoknak kiadható
 küldésére.
 
 % TODO: \newpage
+\newpage
 
 \subsection{A szűrhető és rendezhető táblák kezelése}
 \label{filterable_sortable_table}
@@ -292,7 +318,7 @@ Ezek működése illusztrálva az eseménynapló panel segítségével.
 \begin{itemize}
   \item Előre megadott lehetőségek halmazából felvett értékek
   \begin{figure}[H]
-    \center
+
     \includegraphics[width=\textwidth]{screenshots/filtered_table_list.png}
     \caption{Csak az információ típusú naplóbejegyzések megjelenítése}
     \label{fig:filtered_table_list}
@@ -300,7 +326,7 @@ Ezek működése illusztrálva az eseménynapló panel segítségével.
 
   \item Intervallum típusú értékek
   \begin{figure}[H]
-    \center
+
     \includegraphics[width=\textwidth]{screenshots/filtered_table_range.png}
     \caption{Csak a 13:20:25 és 13:21:15 közötti naplóbejegyzések megjelenítése}
     \label{fig:filtered_table_range}
@@ -308,7 +334,7 @@ Ezek működése illusztrálva az eseménynapló panel segítségével.
 
   \item Szöveg típusú értékek
   \begin{figure}[H]
-    \center
+
     \includegraphics[width=\textwidth]{screenshots/filtered_table_text.png}
     \caption{Csak a 01-es drónnal kapcsolatos naplóbejegyzések megjelenítése}
     \label{fig:filtered_table_text}

@@ -8,13 +8,13 @@ Todo:
 
 Fordítás angol -> magyar
 
+---------------
+
+Done:
+
 React, Redux működése
 Alkalmazás folyamatai
 
 Tesztelés
-
----------------
-
-Done:
 
 Feature-önként bemutatni (nem külön osztályok és modell)
