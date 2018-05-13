@@ -1,6 +1,6 @@
 \section{A funkciók megvalósítása}
 
-Az alábbiakban a szakdolgozat részeit képzeő általam megvalósított funkciókhoz
+Az alábbiakban a szakdolgozat részeit képező általam megvalósított funkciókhoz
 létrehozott osztályok kerülnek bemutatásra, továbbá az alkalmazás
 állapotobjektumának az adott funkciók működéséhez szükséges részei és az azok
 módosítására szolgáló akciók.
@@ -20,7 +20,7 @@ lehetnek rendelve eszközök (device), amiken belül akár több különböző c
 (channel) is elérhetővé tehető. Amennyiben egy ilyen "UAV/device/channel"
 elérési útra feliratkozik egy kliens, akkor minden alkalommal, amikor elérhetővé
 válik egy újabb mérési eredmény, arról értesítést kap a szervertől egy olyan
-objektum formájában, ami tartalmazzaa mérés eredményét, valamint a hozzá
+objektum formájában, ami tartalmazza a mérés eredményét, valamint a hozzá
 tartozó időbélyeget és pozíciót.
 
 Beállítható továbbá a jelölők közötti távolság, hogy rácspontokon kerüljenek-e
@@ -117,7 +117,7 @@ osztály. Folyamatosan tárolja az aktuális pozíciót, elfordulást és nagyí
 valamint feliratkozik az ezekhez tartozó OpenLayers API által nyújtott
 eseményekre, hogy mindig frissíteni tudja az értékeket, ha szükséges, így ezek
 az adatok bármikor lekérdezhetőek belőle. Ezen felül képes a térkép nézeti
-paraméterének animált módosításaira is például egy elmentett állapot
+paraméterének animált módosításaira is, például egy elmentett állapot
 visszatöltéséhez, vagy mondjuk adott drónhoz ugráshoz.
 
 \item\subsubsection{SavedLocationEditorDialog}
@@ -130,8 +130,8 @@ Az elmentett térképállapotok felsorolására szolgáló lista, melynek első 
 állandóan a jelenlegi állapotot tartalmazza, és arra történő kattintással az
 aktuális adatok felvehetőek a listába. A lista egyéb elemeire kattintva az
 azokhoz tartozó paraméterek által jelölt állapotba ugrik a térkép, a mellettük
-lévő fogaskerékre kattintva pedig az adott állapot szerkesztését és törtését
-lehetővé tevő dialógusablak nyílik meg.
+lévő fogaskerékre kattintva pedig az adott állapot szerkesztését és törlését
+lehetővé tevő dialógusablak nyílik meg. (\verb|SavedLocationEditorDialog|)
 
 \end{itemize}
 \noindent A háttérben lévő állapot ehhez tartozó részlete:
@@ -190,18 +190,18 @@ térképen.
 
   \begin{itemize}
   \item \textit{data}:
-    Az megjeleníteni kívánt geometriákat leíró adatokat tartalmazó JSON
+    A megjeleníteni kívánt geometriákat leíró adatokat tartalmazó JSON
     objektum.
-    (Alapértelmezett értéke: {}.)
+    (Alapértelmezett értéke: "\{\}".)
   \item \textit{strokeColor}:
-    A megjeleníette geometriák körvonalának színe.
+    A megjelenített geometriák körvonalának színe.
     (Alapértelmezett értéke: {r: 85, g: 85, b: 225, alpha: 1}, tehát sötét
     átlátszatlan kék.)
   \item \textit{strokeWidth}:
     A megjelenített geometriák körvonalának szélessége pixelekben mérgve.
     (Alapértelmezett értéke: 2.)
   \item \textit{fillColor}:
-    A megjeleníette geometriák kitöltésének színe.
+    A megjelenített geometriák kitöltésének színe.
     (Alapértelmezett értéke: {r: 170, g: 170, b: 225, alpha: 0.5}, tehát világos
     félig átlátszó kék.)
   \end{itemize}
@@ -244,7 +244,7 @@ kiindulópontra, kikapcsolás.)
 
   \item \textbf{state.map.selection}
 
-  Az aktuálisan kiejlölés alatt álló drónok listája. Egy parancs kiadásakor a
+  Az aktuálisan kijelölés alatt álló drónok listája. Egy parancs kiadásakor a
   megfelelő üzenet az ebben a listában szereplő azonosítóval rendelkező drónok
   számára kerül kiküldésre.
 
@@ -430,10 +430,10 @@ szerint beállítható billentyűkiosztástól függő és független gyorsbille
 \item\subsubsection{FilterableSortableTable}
 Adatok szűrhető és sorba rendezhető táblázatban történő megjelenítésére szolgáló
 osztály. Szűrés szempontjából három különböző fajta értéktípust támogat.
-Felsorolható adattípus esetén az egyes típusok ki és bekapcsolását, tartomány
-esetén intervallumra való leszűkítést, szöveges adat esetén pedig keresést a
-szöveg tetszőleges pontján. Sorba rendezéshez minden oszlophoz külön-külön saját
-összehasonlító függvény adható meg.
+Felsorolható adattípus esetén az egyes típusok ki és bekapcsolását teszi
+lehetővé, tartomány esetén intervallumra való leszűkítést, szöveges adat esetén
+pedig keresést a szöveg tetszőleges pontján. Sorba rendezéshez minden oszlophoz
+külön-külön saját összehasonlító függvény adható meg.
 
 \end{itemize}
 

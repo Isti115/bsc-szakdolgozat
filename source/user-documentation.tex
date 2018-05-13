@@ -81,7 +81,7 @@ távolság átállítása nem hat az eddig kirajzolt jelölőkre, csak az újonn
 felvett mérési pontokra, tehát szükséges lehet az eddigi adatok törlése ("CLEAR
 DATA" gomb) a kívánt megjelenítés eléréséhez.)
 
-A kép (\ref{fig:heatmap}. ábra) például egy logaritmikus színezésű, 5 méteres
+A képen (\ref{fig:heatmap}. ábra) például egy logaritmikus színezésű, 5 méteres
 sűrűségű rácspontokra igazított hőtérkép látható, amely egy szimulált pontszerű
 forrásból származó radioaktív mérés eredményeit ábrázolja.
 
@@ -94,9 +94,9 @@ forrásból származó radioaktív mérés eredményeit ábrázolja.
 
 \subsection{Térkép állapotainak elmentése és betöltése}
 
-Az alkalmazás lehetőséget biztosít adott térkép állások (középpont, nagyítás és
+Az alkalmazás lehetőséget biztosít adott térképállások (középpont, nagyítás és
 elforgatás) tárolására későbbi betöltés céljából. Ehhez felületi elemként
-elérhető a kép (\ref{fig:saved_locations}. ábra) bal oldalán látható listát
+elérhető a kép (\ref{fig:saved_locations}. ábra) bal oldalán látható, listát
 tartalmazó panel, mely az eddig elmentett opciókat tartalmazza. Egy elemre
 rákattintva betölthető az adott állapot, ekkor a térkép animálva átvált egy,
 az eltárolt középponttal, nagyítással és elforgatással rendelkező nézetre. A
@@ -104,7 +104,7 @@ listaelemek mellett szereplő fogaskerék ikon pedig a kép jobb oldalán látha
 dialógusablakban nyitja meg szerkesztésre a kiválasztott helyet. Itt törölhető
 is az adott bejegyzés, ha már nincs rá szükség.
 
-Új hely az első elemre ("Add new location") kattintva adható hozzá a
+Új helyet az első elemre ("Add new location") kattintva lehet hozzáadni a
 listához. Ekkor a dialógusablak a térkép aktuális állapotának értékeivel
 kitöltve nyílik meg, így az könnyen elmenthető, vagy pedig kézzel bevihetőek
 kívánt adatok.
@@ -152,12 +152,12 @@ http://geojson.io címen elérhető szerkesztő segítségével készült.
 A drónoknak jelenleg négy fajta parancs adható ki: felszállás, leszállás,
 visszatérés a kiindulópontra valamint kikapcsolás. (A teszt szerver által
 szimulált drónok csak a leszállás és felszállás parancsok végrehajtását
-támogatják.) Ezek a lehetőségek elérhetők a térképen történő jobb egérgombbal
+támogatják.) Ezek a lehetőségek elérhetők a térképen történő, jobb egérgombbal
 végzett kattintáskor felugró menüből ( \ref{fig:commands}. ábra /\circled{1}),
 valamint a drónok listáját tartalmazó panel tetején található eszköztárról
 ( \ref{fig:commands}. ábra /\circled{2}). Egy parancs kiadását követően a
-szerver visszajelzést küld annak végrehajtásának sikerességéről, ez a válasz
-pedig bekerül bejegyzésként az eseménynaplóba.
+szerver visszajelzést küld a végrehajtás sikerességéről, ez a válasz pedig
+bekerül bejegyzésként az eseménynaplóba.
 
 Drónok kijelölése a kijelölés ("Select") eszköz kiválasztása után (az alkalmazás
 első indításakor ez az alapértelmezett eszköz) a következőképpen lehetséges:
@@ -195,9 +195,9 @@ első indításakor ez az alapértelmezett eszköz) a következőképpen lehets�
 A rendszer naplóbejegyzéseit megjelenítő panel alapbeállításként nincs
 bekapcsolva, a bal oldali sávról érhető el. A felületre helyezve egy szűrhető
 és rendezhető táblázat formájában jeleníti meg az állapotüzenetek listáját.
-Alapértelmezetten az üzenetek érkezésének időpontja szerint van csökkenő
-sorrendbe rendezve, azonban ez átállítható például az üzenetek szintjei szerinti
-rendezésre, továbbá szűrések alkalmazhatók bármelyik oszlopon.
+Alapértelmezetten az üzenetek érkezésének időpontja szerint van rendezve
+(csökkenő sorrendbe), azonban ez átállítható például az üzenetek szintjei
+szerinti rendezésre, továbbá szűrések alkalmazhatók bármelyik oszlopon.
 
 \textit{
   Bővebben a szűrhető és rendezhető táblákról lásd:
@@ -221,7 +221,7 @@ hozzá. Az "APPLY CHANGES" gomb megnyomásakor a rendszer megvizsgálja a mezők
 eseménynaplóba a hiba pontos szövegéről, a többit pedig elmenti és alkalmazza a
 drónokra oly módon, hogy a drónok azonosítóit egyesével paraméterül adja
 függvényeknek, és olyan színűre színezi az adott piktogramot, amelyik színhez
-tartozó függvény igazra értékelődött ki.
+tartozó függvény igaz értéket adott vissza.
 
 Az alábbi példában (\ref{fig:uav_coloring}. ábra) a lila színhez tartozó
 predikátum hibás, a kettőnél kisebb számra végződő azonosítóval rendelkező
@@ -263,7 +263,7 @@ Amennyiben a kliens alkalmazást futtató eszköz rendelkezik geolokáció
 megállapítására alkalmas szolgáltatással, akkor az "Own location" típusú réteg
 hozzáadását követően megjelenik a térképen egy kör alakú kék jelölő.
 ( \ref{fig:ownlocation}. ábra /\circled{1}) Ha az eszköz képes a pozícióján felül
-orientáció megállapítására is például mágneses iránytű segítségével, akkor a
+orientáció megállapítására is, például mágneses iránytű segítségével, akkor a
 jelölő ennek megfelelően követi az elfordulást is.
 
 \begin{figure}[H]
@@ -306,14 +306,14 @@ küldésére.
 Szűrhető és rendezhető táblázaton alapul a drónok részletes állapotát mutató
 panel, valamint a naplóbejegyzések megjelenítésére szolgáló lista.
 
-Az ilyen fajta táblázatok oszlopainak fejléce fölé víve az egeret kettő gomb
-válik láthatóvá. Az első az adott oszlop szerinti szűrésre, a második pedig az
-adott oszlop szerinti rendezésre szolgál. A rendezés aktiválása után annak
-iránya megfordítható ikonra történő ismételt kattintással.
+Az ilyen fajta táblázatok oszlopainak fejléce fölé víve az egeret két gomb válik
+láthatóvá. Az első az adott oszlop szerinti szűrésre, a második pedig az adott
+oszlop szerinti rendezésre szolgál. A rendezés aktiválása után annak iránya
+megfordítható az ikonra történő ismételt kattintással.
 
 Szűrés szempontjából három különböző fajtájú oszlop létezik.
-Ezek működése illusztrálva az eseménynapló panel segítségével.
-(Eredeti állapothoz lásd: \ref{fig:log}. ábra).
+Ezek működését illusztrálják az alábbi ábrák az eseménynapló panel segítségével.
+(Eredeti állapothoz lásd: \ref{fig:log}. ábra)
 
 \begin{itemize}
   \item Előre megadott lehetőségek halmazából felvett értékek

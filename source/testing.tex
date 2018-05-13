@@ -1,21 +1,19 @@
 \section{Tesztelés}
 
 Az alábbi felsorolások a szoftver aktuális állapotának futó verzióján általam
-kipróbált műveleteket és azok eredményeit tartalmazzák funkciók szerint
+kipróbált műveleteket és azok eredményeit tartalmazzák, funkciók szerint
 csoportosítva.
-
- - Sok drón (40 kopter, 0.3s delay)
 
 \subsection{Hőtérképes megjelenítés}
 
 \begin{itemize}
 
   \item Egy hőtérkép réteg létrehozása után a feliratkozások beállítását
-  követően azonnal elkezdenek megjelenni a mérési pontok a téképen.
+  követően azonnal elkezdtek megjelenni a mérési pontok a téképen.
 
   \item A színezési függvény, az értékhatárok és a színtartomány bármelyikének
   átállítását követően az "UPDATE PARAMETERS" gomb a jelölők újrarajzolását
-  eredményezi a módosított paraméterek tekintetében.
+  eredményezte a módosított paraméterek tekintetében.
 
 \end{itemize}
 
@@ -35,7 +33,7 @@ csoportosítva.
   \item Egy elmentett pozíció listaeleme melletti fogaskerék ikonra kattintva
   megnyílik az annak szerkesztésére szolgáló dialógusablak, melyből
   módosíthatóak a hozzá tartozó paraméterek, a végrehajtott módosítások
-  elmenthetők vagy pedig elvethetőek, továbbá a teljes bejegyzés is törölhető.
+  elmenthetők vagy pedig elvethetők, továbbá a teljes bejegyzés is törölhető.
 
 \end{itemize}
 
@@ -116,7 +114,7 @@ csoportosítva.
 
 \begin{itemize}
 
-  \item Ha nem érhető el pozícióra vonatkozó adat (telsztelve asztali
+  \item Ha nem érhető el pozícióra vonatkozó adat (tesztelve asztali
   böngészőben letiltva a geolokációt, illetve mobiltelefonon kikapcsolva a
   GPS-t), akkor a jelölő nem kerül rá a térképre és az eseménynaplóban
   megjelenik egy erre vonatkozó bejegyzés.
@@ -133,7 +131,7 @@ csoportosítva.
   \item Ha elérhető mágneses orientációérzékelő is az eszközben, akkor a jelölő
   követi annak elfordulását.
   (Ez a funckió már előzőleg működőképes volt, azonban hoszzú időn át nem került
-  sor az ellenőrzésére annak köszönhetően, hogy mágneses érzékelő általában csak
+  sor az ellenőrzésére abból az okból, hogy mágneses érzékelő általában csak
   mobiltelefonokban van. Laptopról legfeljebb csak emulálni lehet, a telefonról
   történő teszteléshez pedig publikus https szerver indítása szükséges, mert a
   geolokációhoz csak titkosított (vagy megbízható, például "localhost")
@@ -164,10 +162,10 @@ csoportosítva.
 \end{itemize}
 
 
-\subsection{Nagy mennyiségű drón kezelése}
+\subsection{Nagy számú drón kezelése}
 
 Hatékonyság szempontjából a felület tesztelésre került különböző számú szimulált
-drónnal változatos üzenetsűrűségekkel. A tapasztalat az, hogy 40 kopter esetén
+drónnal, változatos üzenetsűrűségekkel. A tapasztalat az, hogy 40 kopter esetén
 nagyjából (drónonként) 0.3 másodpercenként érkező üzenetek esetén éri el az
 alkalmazás aktív használat közben egy 2.5GHz-es órajelen üzemelő processzormag
 kapacitásának határait. Ekkor a felület még használható marad, de már elkezdenek
