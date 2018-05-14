@@ -5,10 +5,12 @@ rendelkezik Wi-Fi rádióval, vagy csatlakoztatva van hozzá XBee adó-vevő.
 Szoftver területén megfelelő Wi-Fi vagy XBee driver, illetve a szerver
 kódjának futtatásához \verb|python 3.6| a követelmény.
 
-A kliens oldal kódjának lefordítása \verb|nodejs| által zajlik, a függőségek
-kezelését az \verb|npm| csomagkezelő végzi, az elkészült állomány egy
-webszerverről kiszolgálva egy böngészőből érhető el, vagy pedig \verb|electron|
-segítségével becsomagolva önállóan futtatható programként.
+A kliens oldal kódjának lefordítása \verb|nodejs| által zajlik (v8.9.0-es
+verzión tesztelve), a függőségek kezelését az \verb|npm| csomagkezelő végzi,
+továbbá a módosított csomagok github-ról történő installációja miatt \verb|git|
+kliens is szükséges. Az elkészült állomány egy webszerverről kiszolgálva egy
+böngészőből érhető el, vagy pedig \verb|electron| segítségével becsomagolva
+önállóan futtatható programként.
 
 A forráskód birtokában, annak gyökérmappájában kiadva az \verb|"npm install"|
 parancsot, telepíthetőek a függőségek. Ezt követően az \verb|"npm start"|

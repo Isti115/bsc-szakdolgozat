@@ -22,18 +22,19 @@ csoportosítva.
 
 \begin{itemize}
 
-  \item Aktuális pozíció eltárolására szolgáló listaelemre kattintva megnyílik
+  \item Az aktuális pozíció eltárolására szolgáló listaelemre kattintva megnyílt
   az adatainak szerkesztésére szolgáló dialógusablak, melyben a bejegyzés neve
-  megadható, a mentés véglegesíthető vagy pedig megszakítható. A mentést
-  választva a bejegyzés hozzáadódik a lista aljára.
+  megadható, a mentés véglegesíthető vagy pedig megszakítható volt. A mentést
+  választva a bejegyzés hozzáadódott a lista aljára.
 
-  \item Egy elmentett pozícióhoz tartozó listaelemre kattintva a térkép betölti
-  a hozzá tartozó állapotot.
+  \item Egy elmentett pozícióhoz tartozó listaelemre kattintva a térkép
+  betöltötte a hozzá tartozó állapotot.
 
   \item Egy elmentett pozíció listaeleme melletti fogaskerék ikonra kattintva
-  megnyílik az annak szerkesztésére szolgáló dialógusablak, melyből
-  módosíthatóak a hozzá tartozó paraméterek, a végrehajtott módosítások
-  elmenthetők vagy pedig elvethetők, továbbá a teljes bejegyzés is törölhető.
+  megnyílt az annak szerkesztésére szolgáló dialógusablak, melyből
+  módosíthatóak voltak a hozzá tartozó paraméterek, a végrehajtott módosítások
+  elmenthetők vagy pedig elvethetők voltak, továbbá a teljes bejegyzés is
+  törölhető volt.
 
 \end{itemize}
 
@@ -43,15 +44,17 @@ csoportosítva.
 \begin{itemize}
 
   \item Hibás tartalom esetén az "IMPORT GEOJSON" gomb megnyomását követően a
-  képernyő alsó szélén felugró üzenet jelzi, hogy helytelen a GeoJSON adat. Az
-  üres mező is hibás adatnak számít, hiszen a nulla hosszúságú sztring nem valid
-  GeoJSON. (A mező kezdeti értéke "\{\}".) A bevitt adat ekkor nem kerül
-  rögzítésre, így a legutolsó valid tartalom marad kirajzolva a térképre.
+  képernyő alsó szélén egy felugró üzenet jelezte, hogy helytelen a GeoJSON
+  adat. (Az üres mezőt kipróbálva az is hibás adatnak számított, hiszen a nulla
+  hosszúságú sztring nem valid GeoJSON. A mező kezdeti értéke "\{\}".) A bevitt
+  adat ekkor nem került rögzítésre, így a legutolsó valid tartalom maradt
+  kirajzolva a térképre.
 
   \item Helyes tartalom esetén az import "IMPORT GEOJSON" gombra kattintva az
-  adat által leírt objektumok megjelennek a térképen a beállított kitöltési és
-  körvonalazási színekkel. Az előzőleg megjelenített objektumok eltűnnek, tehát
-  több különálló adat kirajzolásához több GeoJSON réteg létrehozása szükséges.
+  adat által leírt objektumok megjelentek a térképen a beállított kitöltési és
+  körvonalazási színekkel. Az előzőleg megjelenített objektumok pedig eltűntek.
+  (Tehát több különálló adat kirajzolásához több GeoJSON réteg létrehozása
+  szükséges.)
 
 \end{itemize}
 
@@ -60,16 +63,17 @@ csoportosítva.
 
 \begin{itemize}
 
-  \item Amennyiben egy drón sincs kijelölve, akkor a jobb klikk menüben és az
-  eszköztárban is inaktívak (tehát szürkék és nem kattinthatóak) a gombok.
+  \item Amennyiben egy drón sem volt kijelölve, akkor a jobb klikk menüben és az
+  eszköztárban is inaktívak (tehát szürkék és nem kattinthatóak) voltak a
+  gombok.
 
-  \item Legalább egy kijelölt drón esetén a gombok aktívvá válnak.
+  \item Legalább egy kijelölt drón esetén a gombok aktívvá váltak.
 
   \item Egy parancshoz tartozó gombra történő kattintás után a drónok
-  végrehajtják a kapott parancsot (a teszt szerver által szimulált drónok csak a
-  leszállás és felszállás parancsok végrehajtását támogatják), az eseménynaplóba
-  pedig bejegyzés kerül, amikor visszajelzés érkezik a szervertől, hogy
-  megérkezett hozzá az utasítás kiadását kezdeményező üzenet.
+  végrehajtották a kapott parancsot (a teszt szerver által szimulált drónok csak
+  a leszállás és felszállás parancsok végrehajtását támogatják), az
+  eseménynaplóba pedig bejegyzés került, amikor visszajelzés érkezett a
+  szervertől, hogy megérkezett hozzá az utasítás kiadását kezdeményező üzenet.
 
 \end{itemize}
 
@@ -78,7 +82,7 @@ csoportosítva.
 
 \begin{itemize}
 
-  \item Új állapotüzenet érkezésekor a táblázat megjeleníti a bejegyzést.
+  \item Új állapotüzenet érkezésekor a táblázat megjelenítette a bejegyzést.
 
 \end{itemize}
 
@@ -87,16 +91,18 @@ csoportosítva.
 
 \begin{itemize}
 
-  \item Üresen hagyott mező esetén a szín egyik drónra sem érvényesül.
+  \item Üresen hagyott mező esetén a szín egyik drónra sem érvényesült.
 
   \item Helyesen kitöltött mező esetén az "APPLY CHANGES" gomb (vagy az Enter
-  billentyű) megnyomása után a szín a feltételt teljesítő drónokra érvényesül.
+  billentyű) megnyomása után a szín azokra a feltételt teljesítő drónokra
+  érvényesült, amelyeket nem írt felül más predikátumok teljesülése.
 
   \item Hibásan kitöltött mező esetén az "APPLY CHANGES" gomb (vagy az Enter
   billentyű) megnyomását követően a hibás mező címkéje és alsó szegélye piros
-  színre vált, a hiba szövege bekerül az eseménynaplóba. A bevitt érték nem
-  kerül rögzítésre, tehát a szín azokra a drónokra marad érvényes, amelyek a
-  mező által előzőleg tartalmazott legutolsó valid predikátumot teljesítik.
+  színűre váltott, a hiba szövege pedig bekerült az eseménynaplóba. A bevitt
+  érték nem került rögzítésre, tehát a szín azokra a drónokra maradt érvényes,
+  amelyek a mező által előzőleg tartalmazott legutolsó valid predikátumot
+  teljesítették.
 
 \end{itemize}
 
@@ -105,7 +111,7 @@ csoportosítva.
 
 \begin{itemize}
 
-  \item A táblázat helyesen kijelzi a drónokról jelenleg ismert információkat.
+  \item A táblázat helyesen kijelezte a drónokról jelenleg ismert információkat.
 
 \end{itemize}
 
@@ -114,22 +120,22 @@ csoportosítva.
 
 \begin{itemize}
 
-  \item Ha nem érhető el pozícióra vonatkozó adat (tesztelve asztali
+  \item Ha nem volt elérhető pozícióra vonatkozó adat (például asztali
   böngészőben letiltva a geolokációt, illetve mobiltelefonon kikapcsolva a
-  GPS-t), akkor a jelölő nem kerül rá a térképre és az eseménynaplóban
-  megjelenik egy erre vonatkozó bejegyzés.
+  GPS-t), akkor a jelölő nem került rá a térképre és az eseménynaplóban
+  megjelent egy erre vonatkozó bejegyzés.
   \begin{figure}[H]
     \includegraphics[width=\textwidth]{phone_gps_denied.png}
     \caption{Mobil eszköz kikapcsolt GPS-el}
     \label{fig:phone_gps_denied}
   \end{figure}
 
-  \item Ha elérhető geolokáció szolgáltatás, akkor a jelölő felkerül a térkép
-  megfelelő pontjára, valamint a pozíció megváltozásakor frissül és követi az
-  elmozdulást.
+  \item Ha elérhető volt a geolokáció szolgáltatás, akkor a jelölő felkerült a
+  térkép megfelelő pontjára, valamint a pozíció megváltozásakor frissült és
+  követte az elmozdulást.
 
-  \item Ha elérhető mágneses orientációérzékelő is az eszközben, akkor a jelölő
-  követi annak elfordulását.
+  \item Ha mágneses orientációérzékelő is elérhető volt az eszközben
+  (mobiltelefonon tesztelve), akkor a jelölő követte annak elfordulását.
   (Ez a funkció már előzőleg működőképes volt, azonban hosszú időn át nem került
   sor az ellenőrzésére abból az okból, hogy mágneses érzékelő általában csak
   mobiltelefonokban van. Laptopról legfeljebb csak emulálni lehet, a telefonról
@@ -157,7 +163,7 @@ csoportosítva.
 
 \begin{itemize}
 
-  \item Minden billentyűkombináció megfelelően működik.
+  \item Minden billentyűkombináció megfelelően működött.
 
 \end{itemize}
 

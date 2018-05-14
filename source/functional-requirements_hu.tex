@@ -1,0 +1,98 @@
+\section{Funkcionális követelmények}
+
+\subsection{Hőtérképes megjelenítés}
+
+A drónokról érkező (numerikus) adatok megjelenítése színes hőtérkép segítségével.
+A jelölő pontok méretei, a köztük lévő távolság, valamint a színskála személyre szabható (lineáris / logaritmikus, a színek határai), továbbá bekapcsolható a rácspontokhoz igazítás, ami egy négyzetrács csúcsaira illeszti a kapott értékeket.
+
+\begin {itemize}
+  \item \textit{Ha} egy hőtérkép réteg aktív és fel van iratkozva egy adott csatornára egy drónon, \textit{amikor} új adat érkezik az érzékelőtől \textit{akkor} az megjelenik a térképen.
+  \item \textit{Ha} már van adat kirajzolva a térképen és aktív az automatikus skálázás, \textit{amikor} egy új szélsőséges érték érkezik, ami a jelenlegi minimum és maximum által meghatározott tartományom kívül esik, \textit{akkor} a korlátok mellett a már meglévő pontok színei is frissülnek.
+\end {itemize}
+
+
+\subsection{Térkép állapotainak (pozíció, forgatás, nagyítás) tárolása és betöltése}
+
+Egy panel, amelyen elmenthetőek, szerkeszthetőek és visszatölthetőek adott nézetek. A tárolt adatok: a középpont koordinátái, az elforgatás szöge, a nagyítás mértéke, valamint a nézet neve.
+
+\begin {itemize}
+  \item \textit{Ha} a felhasználó a kívánt állapotba mozgatta, forgatta és nagyította a térképet, \textit{amikor} a felhasználó rákattint az "Add a new location" lehetőségre, \textit{akkor} az aktuális pozíció, elfordulás és nagyítás rögzítésre kerül és a felugró dialógusablakban felhasználónak lehetősége van átnevezni a létrehozni kívánt bejegyzést és elmenteni, illetve elvetni azt.
+  \item \textit{Ha} a felhasználó már előzőleg elmentett egy térképállapotot, \textit{amikor} a felhasználó kiválasztja ezt a térképállapotot, \textit{akkor} a térkép abba az állapotba mozog, forog és nagyítódik.
+\end {itemize}
+
+
+\subsection{Objektumok betöltése GeoJSON formátumból}
+
+Különböző alakzatok megjelenítése a térképen, például repülési zóna vizualizálására, tereptárgyak kijelölésére.
+
+\begin {itemize}
+  \item \textit{Ha} a felhasználó létrehozott egy GeoJSON réteget és a felkínált szövegdobozba érvényes GeoJSON adatokat másolt, \textit{amikor} a felhasználó megnyomja az "IMPORT GEOJSON" gombot, \textit{akkor} az alkalmazás megjeleníti a leírt objektumokat a térképen.
+  \item \textit{Ha} a felhasználó invalid értéket másolt a szövegdobozba, \textit{amikor} megnyomja az "IMPORT GEOJSON" gombot \textit{akkor} a térképen az előzőleg kirajzolt objektumok maradnak rajta.
+\end {itemize}
+
+
+\subsection{Parancsok kiadása drónoknak menüsorról és jobb egérgombra felugró ablakból}
+
+Felszállás, leszállás, visszatérés illetve egyéb parancsok és üzenetek küldése drónoknak. Ha vannak kiválasztott egységek, akkor a menüsoron lévő akciók az összes jelenleg kijelölt kopterre hatással vannak, egy kopterre jobb egérgombbal kattintva pedig egy felugró ablakban válnak elérhetővé ugyanezek a lehetőségek arra az adott drónra vonatkozóan.
+
+\begin {itemize}
+  \item \textit{Ha} vannak kijelölve drónok, \textit{amikor} a felhasználó jobb egérgombbal kattint a térképen egy üres területen, \textit{akkor} egy felugró menü lehetőséget biztosít parancs kiadására a kijelölt drónoknak.
+  \item \textit{Ha} vannak kijelölve drónok, \textit{amikor} a felhasználó jobb egérgombbal kattint a térképen egy drón felett, \textit{akkor} a drón hozzáadódik a kijelöléshez és egy felugró menü lehetőséget biztosít parancs kiadására a kijelölt drónoknak.
+  \item \textit{Ha} vannak kijelölve drónok, \textit{amikor} a felhasználó kiválaszt egy parancsot az eszköztárról vagy pedig a felugró menüből, \textit{akkor} a drónok végrehajtják az adott parancsot.
+\end {itemize}
+
+
+\subsection{Állapotüzenetek (információk, figyelmeztetések, hibák) kijelzésére alkalmas panel}
+
+Napló vezetése az alkalmazás különböző üzeneteiről, valamint ennek megjelenítése egy sorba rendezhető, szűrhető táblázatban.
+
+\begin {itemize}
+  \item \textit{Ha} egy esemény naplóbejegyzést eredményez, \textit{amikor} lezajlik az adott esemény, \textit{akkor} az általa készített bejegyzés eltárolódik a naplóban.
+  \item \textit{Ha} aktív a felületen a naplóbejegyzések kijelzésére alkalmas panel, \textit{amikor} új bejegyzés érkezik, \textit{akkor} az azonnal automatikusan megjelenik a táblázatban.
+  \item \textit{Ha} aktív a felületen a naplóbejegyzések kijelzésére alkalmas panel, \textit{amikor} a felhasználó megnyomja a rendezés gombot valamelyik oszlop fejsorában, \textit{akkor} a sorok az ahhoz az oszlophoz tartozó értékük szerinti sorrendben jelennek meg.
+  \item \textit{Ha} aktív a felületen a naplóbejegyzések kijelzésére alkalmas panel, \textit{amikor} a felhasználó szűrést alkalmaz valamelyik oszlopra, \textit{akkor} a táblázatban csak a szűrési feltételnek eleget tevő sorok maradnak láthatóak.
+\end {itemize}
+
+
+\subsection{Drónok színkódolása predikátumok alapján}
+
+A drónok alapértelmezetten feketén jelennek meg, további színekhez pedig megadhatóak JavaScript függvénytörzsek, melyek paraméterül egy drón nevét kapják.
+Amennyiben egy bizonyos színhez megadott feltétel, valamely azonosítót kapva paraméterként, igazra értékelődik ki, akkor az adott drón a térképen olyan színnel jelenik meg.
+Például \verb|blue: 'Number(id) < 10'| esetén az 5-ös azonosítójú drón kék lesz, a 15-ös azonban nem.
+
+\begin {itemize}
+  \item \textit{Ha} egy adott drón azonosítója egyik színhez megadott predikátumnak sem tesz eleget, \textit{amikor} a térképre rajzolódik, \textit{akkor} a hozzá tartozó piktogram színe fekete.
+  \item \textit{Ha} a felhasználó bevisz egy érvényes predikátumot az egyik színhez tartozó mezőbe, \textit{amikor} megnyomja az "APPLY CHANGES" gombbot, \textit{akkor} az olyan drónok, amelyek megfelelnek ennek a predikátumnak (és semelyik másiknak sem), az adott színű ikonnal jelennek meg a térképen.
+\end {itemize}
+
+
+\subsection{Drónok részletes aktuális állapotát mutató panel}
+
+Egy táblázat, amiben minden drónhoz egy-egy sor tartozik, melyben a rá vonatkozó részletes információk (akkufeszültség, aktuálisan futó algoritmus / koreográfia, stb.) láthatóak.
+
+\begin {itemize}
+  \item \textit{Ha} a drónokról ismert aktuális információk megjelenítésére szolgáló panel aktív, \textit{amikor} új adat érkezik valamelyik drónról \textit{akkor} a táblázat megfelelő sora frissül.
+\end {itemize}
+
+
+\subsection{Kliens állomás pozíciójának megjelenítése a térképen geolokáció alapján}
+
+Amennyiben a kliens eszköz rendelkezik geolokáció szolgáltatással, akkor a megfelelő réteg hozzáadását követően megjelenik az aktuális helyzete és iránya a térképen.
+A funkció bekapcsolását követően a jelölő pozíciója és állása folyamatosan frissül az eszköz által rendelkezésre bocsátott információk alapján.
+
+\begin {itemize}
+  \item \textit{Ha} az alkalmazást futtató eszköz támogatja a geolokáció szolgáltatást, \textit{amikor} a felhasználó létrehoz egy "Own location" réteget, \textit{akkor} a jelölő felkerül a térkép megfelelő pontjára.
+  \item \textit{Ha} van aktív "Own location" típusú réteg és az eszköz támogatja a geolokáció lekérdezését, \textit{amikor} a felhasználó pozíciója megváltozik, \textit{akkor} a jelölő is követi az elmozdulást.
+  \item \textit{Ha} van aktív "Own location" típusú réteg és az eszköz a felhasználó pozícióján kívül orientációra vonatkozó adatokat is elérhetővé tesz, \textit{amikor} az eszköz iránya megváltozik, \textit{akkor} a jelölő is követi az elfordulást.
+\end {itemize}
+
+
+\subsection{Billentyűkombinációkkal történő vezérlés}
+
+Az alkalmazás bizonyos funkcióinak elérése a billentyűzet segítségével, például kijelölés kezelése, parancs küldése drónoknak, dialógusablakok megnyitása.
+Súgó elérése a billentyűkombinációk megtekintésére.
+
+\begin {itemize}
+  \item \textit{Ha} semmilyen beviteli mező sem aktív, \textit{amikor} a felhasználó megnyomja a "?" karakter begépelésére szolgáló billentyűkombinációt, \textit{akkor} megjelenik az összes elérhető gyorsbillentyűt tartalmazó táblázat.
+  \item \textit{Ha} semmilyen beviteli mező sem aktív, \textit{amikor} a felhasználó megnyom egyet az elérhető gyorsbillentyűk közül, \textit{akkor} végrehajtódik a hozzá tartozó parancs.
+\end {itemize}

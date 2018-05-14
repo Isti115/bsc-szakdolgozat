@@ -6,17 +6,17 @@ LineTrace could be added as well.
 
 Todo:
 
-Tartalomjegyzék számozás! (10.10)
 "fel-- és leiratkozás"
 ?piktogram
-
-kitekintés kifejt
-Fordítás angol -> magyar
 
 ---------------
 
 Done:
 
+kitekintés kifejt
+Fordítás angol -> magyar
+
+Tartalomjegyzék számozás! (10.10)
 React, Redux működése
 Alkalmazás folyamatai
 
